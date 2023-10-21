@@ -1,19 +1,38 @@
 package com.antiques.antiques.model;
 
+import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.util.Objects;
-
+@Entity
+@Table(name="USERS")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "surname")
     private String surname;
+    @Column(name = "age")
     private int age;
+    @Column(name = "nick")
     private String nick;
+    @Column(name = "mail")
     private String mail;
+    @Column(name = "account")
     private BigDecimal account;
 
     public User() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -76,4 +95,30 @@ public class User {
     public int hashCode() {
         return Objects.hash(name, surname, age, nick, mail, account);
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", age=" + age +
+                ", nick='" + nick + '\'' +
+                ", mail='" + mail + '\'' +
+                ", account=" + account +
+                '}';
+    }
+
+    public boolean hasName() {
+        return name != null && !"".equals(name.trim());
+    }
+
+    public boolean hasSurname() {
+        return surname != null && !"".equals(surname.trim());
+    }
+
+    public boolean hasMail() {
+        return mail != null && !"".equals(mail.trim());
+    }
+
 }
