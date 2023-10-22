@@ -1,62 +1,49 @@
 package com.antiques.antiques.service;
 
 import com.antiques.antiques.model.User;
-import com.github.adminfaces.template.exception.BusinessException;
 import jakarta.ejb.Stateless;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 
-import java.io.Serializable;
 import java.util.List;
-import java.util.Objects;
-
-import static com.github.adminfaces.template.util.Assert.has;
-
 
 @Stateless
-public class UserService implements Serializable  {
+public class UserService {
 
-    List<User> usersList;
-
-    public List<User> getUsersList() {
-        return usersList;
+    @PersistenceContext
+    private EntityManager entityManager;
+    public List<User> loadAllUsers() {
+        return this.entityManager.createQuery("SELECT u FROM User u", User.class).getResultList();
     }
 
-    public void insert (User user) {
-        validate(user);
-        user.setId(usersList.stream().mapToInt(User::getId).max().getAsInt()+1);
-        usersList.add(user);
+    public void addNewUser(User user) {
+
+        User newUser = new User();
+        newUser.setId(user.getId());
+        newUser.setName(user.getName());
+        newUser.setSurname(user.getSurname());
+        newUser.setAge(user.getAge());
+        newUser.setNick(user.getNick());
+        newUser.setMail(user.getMail());
+        newUser.setAccount(user.getAccount());
+
+
+        this.entityManager.persist(newUser);
     }
 
-    public void validate(User user) {
-        BusinessException be = new BusinessException();
-        if(!user.hasName()) {
-            be.addException(new BusinessException("User name cannot be empty!"));
+    public void updateUser(List<User> user) {
+        user.forEach(entityManager::merge);
+    }
+
+    public void deleteUser(User user) {
+        if (entityManager.contains(user)) {
+            entityManager.remove(user);
+        } else {
+            User managedUser = entityManager.find(User.class, user.getId());
+            if (managedUser != null) {
+                entityManager.remove(managedUser);
+            }
         }
-        if(!user.hasSurname()) {
-            be.addException(new BusinessException("User surname cannot be empty!"));
-        }
-        if(!user.hasMail()) {
-            be.addException(new BusinessException("User mail cannot be empty!"));
-        }
-        if(has(be.getExceptionList())) {
-            throw be;
-        }
-    }
-
-    public void remove(User user) {
-        usersList.remove(user);
-    }
-
-    public User findById(int id) {
-        return usersList.stream()
-                .filter(u -> Objects.equals(u.getId(), id))
-                .findFirst()
-                .orElseThrow(() -> new BusinessException("User with id: " + id + " doesn't exist"));
-    }
-
-    public void update(User user) {
-        validate(user);
-        usersList.remove(user);
-        usersList.add(user);
     }
 
 }
