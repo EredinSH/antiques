@@ -1,4 +1,4 @@
-package com.antiques.antiques.dbManager;
+package com.antiques.antiques.manager;
 
 import org.apache.http.annotation.Contract;
 

@@ -2,11 +2,12 @@ package com.antiques.antiques.model;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 @Entity
 @Table(name="USERS")
-public class User {
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,7 +23,7 @@ public class User {
     @Column(name = "mail")
     private String mail;
     @Column(name = "account")
-    private BigDecimal account;
+    private Double account;
 
     public User() {
     }
@@ -75,11 +76,11 @@ public class User {
         this.mail = mail;
     }
 
-    public BigDecimal getAccount() {
+    public Double getAccount() {
         return account;
     }
 
-    public void setAccount(BigDecimal account) {
+    public void setAccount(Double account) {
         this.account = account;
     }
 

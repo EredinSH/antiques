@@ -2,13 +2,14 @@ package com.antiques.antiques.model;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Objects;
 
 @Entity
 @Table(name="ITEMS")
-public class Item {
+public class Item implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,7 +21,7 @@ public class Item {
     @Column(name = "yearOfProduction")
     private int yearOfProduction;
     @Column(name = "price")
-    private BigDecimal price;
+    private Double price;
     @Column(name = "auctionEndDate")
     private Date auctionEndDate;
     @Column(name = "description")
@@ -29,7 +30,7 @@ public class Item {
     public Item() {
     }
 
-    public Item(int id, String name, String category, int yearOfProduction, BigDecimal price, Date auctionEndDate, String description) {
+    public Item(int id, String name, String category, int yearOfProduction, Double price, Date auctionEndDate, String description) {
         this.id = id;
         this.name = name;
         this.category = category;
@@ -71,11 +72,11 @@ public class Item {
         this.yearOfProduction = yearOfProduction;
     }
 
-    public BigDecimal getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

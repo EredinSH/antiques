@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:h="http://java.sun.com/jsf/html"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<head>
+    <title>Users List</title>
+</head>
+<body>
+
+<h1> "Here is a users list!"
+</h1>
+<h:form id="users">
+    <p:growl id="growl" sticky="true" />
+    <p:dataTable id="usersList" var="user" value="#{userBean.customersList}">
+        <p:column headerText="Id">
+            <h:outputText value="#{user.id}"/>
+        </p:column>
+
+        <p:column headerText="First name">
+            <p:inputText id="firstNameInput" value="#{user.name}"/>
+        </p:column>
+
+        <p:column headerText="Surname">
+            <p:inputText id="lastNameInput" value="#{user.surname}"/>
+        </p:column>
+
+        <p:column headerText="Mail">
+            <p:inputText id="emailInput" value="#{user.mail}"/>
+        </p:column>
+
+        <p:column headerText="Age">
+            <p:inputText id="ageInput" value="#{user.age}"/>
+        </p:column>
+
+        <p:column headerText="Nick">
+            <p:inputText id="nickInput" value="#{user.nick}"/>
+        </p:column>
+
+        <p:column headerText="Account">
+            <p:inputText id="accountInput" value="#{user.account}"/>
+        </p:column>
+
+        <p:column>
+            <p:commandButton update="usersList" value="Delete" icon="ui-icon-closethick"
+                             action="#{userBean.delete(user)}"
+                             styleClass="ui-priority-primary">
+            </p:commandButton>
+        </p:column>
+    </p:dataTable>
+    <br/>
+    <p:commandButton style="float: right" id="save" value="Save" tyleClass="ui-priority-primary"
+                     action="#{userBean.update}" icon="ui-icon-disk" update="growl">
+        <f:ajax execute="@form" render="@form"/>
+    </p:commandButton>
+</h:form>
+
+</body>
+</html>
+
+
