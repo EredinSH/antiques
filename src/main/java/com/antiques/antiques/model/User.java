@@ -3,7 +3,6 @@ package com.antiques.antiques.model;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Objects;
 @Entity
 @Table(name="USERS")

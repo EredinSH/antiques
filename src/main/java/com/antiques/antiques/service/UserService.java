@@ -1,13 +1,11 @@
 package com.antiques.antiques.service;
 
 import com.antiques.antiques.model.User;
-import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 
 import java.util.List;
 
-@Stateless
 public class UserService {
 
     @PersistenceContext

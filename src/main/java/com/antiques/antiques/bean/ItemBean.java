@@ -3,28 +3,23 @@ package com.antiques.antiques.bean;
 
 import com.antiques.antiques.model.Item;
 import com.antiques.antiques.service.ItemService;
-import jakarta.annotation.PostConstruct;
-import jakarta.faces.application.FacesMessage;
-import jakarta.faces.context.FacesContext;
-import jakarta.faces.view.ViewScoped;
-import jakarta.inject.Inject;
-import jakarta.inject.Named;
-
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 import java.io.Serializable;
 import java.util.List;
 
-@Named
-@ViewScoped
+@ManagedBean
 public class ItemBean implements Serializable {
 
     private List<Item> itemList;
 
     private Item item = new Item();
 
-    @Inject
+
     private ItemService itemService;
 
-    @PostConstruct
+
     public void init() {
         this.itemList = itemService.loadAllItems();
     }
