@@ -9,7 +9,7 @@
     <name>antiques</name>
     <packaging>war</packaging>
 
-    <url>http://antiques.com</url>
+    <url>http://wildfly.org</url>
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
@@ -19,6 +19,7 @@
     </licenses>
 
     <properties>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <version.wildfly.maven.plugin>2.0.0.Final</version.wildfly.maven.plugin>
@@ -34,8 +35,10 @@
         <maven.compiler.source>11</maven.compiler.source>
     </properties>
 
+
     <dependencyManagement>
         <dependencies>
+
             <dependency>
                 <groupId>org.wildfly.bom</groupId>
                 <artifactId>jboss-javaee-7.0-with-tools</artifactId>
@@ -92,29 +95,6 @@
         </dependency>
 
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet.jsp</groupId>
-            <artifactId>javax.servlet.jsp-api</artifactId>
-            <version>2.3.1</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>jstl</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.2</version>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.30</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
             <scope>provided</scope>
@@ -162,14 +142,14 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.1.3.Final</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpcore</artifactId>
             <version>4.4.14</version>
-        </dependency>
-        <dependency>
-            <groupId>com.sebastian-daschner</groupId>
-            <artifactId>jaxrs-analyzer</artifactId>
-            <version>0.17</version>
         </dependency>
         <dependency>
             <groupId>jakarta.persistence</groupId>
@@ -187,7 +167,7 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>${version.war.plugin}</version>
                 <configuration>
-
+                    <!-- Java EE 7 doesn't require web.xml, Maven needs to catch up! -->
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
@@ -206,7 +186,6 @@
 
     <profiles>
         <profile>
-
             <id>default</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
@@ -223,7 +202,6 @@
                 </plugins>
             </build>
         </profile>
-
 
         <profile>
             <id>openshift</id>
