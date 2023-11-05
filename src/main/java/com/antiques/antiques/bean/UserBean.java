@@ -1,29 +1,24 @@
 package com.antiques.antiques.bean;
 
 import com.antiques.antiques.model.User;
+import javax.faces.application.FacesMessage;
 import com.antiques.antiques.service.UserService;
-import jakarta.annotation.PostConstruct;
-import jakarta.faces.application.FacesMessage;
-import jakarta.faces.context.FacesContext;
-import jakarta.faces.view.ViewScoped;
-import jakarta.inject.Inject;
-import jakarta.inject.Named;
-
+import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 import java.io.Serializable;
 import java.util.List;
 
-@Named
-@ViewScoped
+@ManagedBean
 public class UserBean implements Serializable {
 
     private List<User> customersList;
 
     private User user = new User();
 
-    @Inject
+
     private UserService userService;
 
-    @PostConstruct
+
     public void init() {
         this.customersList = userService.loadAllUsers();
     }

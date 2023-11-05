@@ -1,10 +1,9 @@
 package com.antiques.antiques.model;
 
-import jakarta.persistence.*;
-
+import javax.persistence.*;
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.Date;
+
+import java.sql.Date;
 import java.util.Objects;
 
 @Entity
@@ -13,6 +12,7 @@ public class Item implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name= "id")
     private int id;
     @Column(name = "name")
     private String name;
@@ -80,7 +80,7 @@ public class Item implements Serializable {
         this.price = price;
     }
 
-    public Date getAuctionEndDate() {
+    public java.sql.Date getAuctionEndDate() {
         return auctionEndDate;
     }
 

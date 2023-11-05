@@ -1,19 +1,17 @@
 package com.antiques.antiques.service;
 
 import com.antiques.antiques.model.User;
-import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 
 import java.util.List;
 
-@Stateless
 public class UserService {
 
     @PersistenceContext
     private EntityManager entityManager;
     public List<User> loadAllUsers() {
-        return this.entityManager.createQuery("SELECT u FROM User u", User.class).getResultList();
+        return this.entityManager.createQuery("SELECT u FROM user u", User.class).getResultList();
     }
 
     public void addNewUser(User user) {

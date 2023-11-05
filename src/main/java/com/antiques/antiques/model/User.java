@@ -1,9 +1,7 @@
 package com.antiques.antiques.model;
 
-import jakarta.persistence.*;
-
+import javax.persistence.*;
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Objects;
 @Entity
 @Table(name="USERS")
@@ -11,6 +9,7 @@ public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name= "id")
     private int id;
     @Column(name = "name")
     private String name;

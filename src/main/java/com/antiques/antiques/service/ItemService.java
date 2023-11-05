@@ -11,7 +11,7 @@ public class ItemService {
     @PersistenceContext
     private EntityManager entityManager;
     public List<Item> loadAllItems() {
-        return this.entityManager.createQuery("SELECT i FROM Item i", Item.class).getResultList();
+        return this.entityManager.createQuery("SELECT i FROM item i", Item.class).getResultList();
     }
 
     public void addNewItem(Item item) {

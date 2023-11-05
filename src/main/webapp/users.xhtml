@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head><title>Użytkownicy</title>
+</h:head>
+<h:body>
+
+    <h1>Jesteś na stronie użytkowników!</h1>
+    <h2>Zarzadzaj listą użytkowników</h2>
+
+    <div align="center">
+       <h2><h:outputText value="Lista użytkowników"/></h2>
+        <h:form id="userForm">
+            <h:dataTable id="studentTable" binding="#{table}" value="#{dbManagerBean.getUsersList()}" var="user" class="table table-striped table-hover table-bordered tableUpdated">
+                <h:column name="header" id="idColumn">ID
+                    <h:outputText value="#{table.rowIndex + 1}" />
+                </h:column>
+                <h:column name="header" id="nameColumn">IMIĘ
+                    <h:outputText value="#{user.name}" />
+                </h:column>
+                <h:column name="header" id="surnameColumn">NAZWISKO
+                    <h:outputText value="#{user.surname}" />
+                </h:column>
+                <h:column name="header" id="ageColumn">
+                    <h:outputText value="#{user.age}" />
+                </h:column>
+                <h:column name="header" id="nickColumn">
+                    <h:outputText value="#{user.nick}" />
+                </h:column>
+                <h:column name="header" id="mailColumn">
+                    <h:outputText value="#{user.mail}" />
+                </h:column>
+                <h:column name="header" id="accountColumn">
+                    <h:outputText value="#{user.account}" />
+                </h:column>
+                <h:column name="edit" id="editButton">
+                    <h:commandButton action="#{dbManagerBean.editUser(user)}" value="Edit" class="btn btn-danger" />
+                </h:column>
+                <h:column name="delete" id="deleteButton">
+                    <h:commandButton action="#{dbManagerBean.deleteUSer(user.id)}" value="Delete" class="btn btn-danger" />
+                </h:column>
+            </h:dataTable>
+
+                <h:commandButton action="createUser.xhtml?faces-redirect=true" value="Create New User" class="btn btn-success btnSpace" />
+
+        </h:form>
+
+    </div>
+</h:body></html>
