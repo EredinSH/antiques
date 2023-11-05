@@ -40,9 +40,7 @@
         <p:outputLabel for="account" value="Account: " />
         <p:inputText id="account" value="#{userBean.user.account}">
         </p:inputText>
-        <p:message for="maaccountil" />
-
-
+        <p:message for="account" />
 
         <p:commandButton update="@form :users:usersList" value="Add" action="#{userBean.add}">
         </p:commandButton>

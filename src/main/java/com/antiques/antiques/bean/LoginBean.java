@@ -32,7 +32,7 @@ public class LoginBean {
             return "adminWeb";
         }
         if(getUserLogin().trim().equals("user") && getUserPassword().trim().equals("password")) {
-            return "userWeb";
+            return "mainPage";
         }
         else {
             context.addMessage(null, new FacesMessage( "Konto o podanych danych nie istnieje. Jesli zapomniales loginu lub hasla skontaktuj sie z administratorem strony!"));

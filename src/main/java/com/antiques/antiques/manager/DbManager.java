@@ -1,5 +1,6 @@
 package com.antiques.antiques.manager;
 
+import com.antiques.antiques.model.Item;
 import com.antiques.antiques.model.User;
 import org.apache.http.annotation.Contract;
 
@@ -92,10 +93,10 @@ public class DbManager {
         return user;
     }
 
-    public static List<User> getAllUsers(int start, int total) throws SQLException {
+    public static List<User> getAllUsers() throws SQLException {
         List<User> list = new ArrayList<>();
         Connection conn = DbManager.getConnection();
-        PreparedStatement preparedStatement = conn.prepareStatement("select * from user limit " + (start -1) + "," + total);
+        PreparedStatement preparedStatement = conn.prepareStatement("select * from user");
         ResultSet resultSet = preparedStatement.executeQuery();
 
         while(resultSet.next()) {
@@ -108,6 +109,94 @@ public class DbManager {
             user.setMail(resultSet.getString(6));
             user.setAccount(resultSet.getDouble(7));
             list.add(user);
+        }
+
+        conn.close();
+        return list;
+    }
+
+
+    public static int addItem(Item item) throws SQLException {
+        int result = 0;
+        Connection conn = DbManager.getConnection();
+        PreparedStatement preparedStatement = conn.prepareStatement("insert into item(name,category,yearOfProduction,price,auctionEndDate,description) values (?,?,?,?,?,?)");
+        preparedStatement.setString(1, item.getName());
+        preparedStatement.setString(2, item.getCategory());
+        preparedStatement.setInt(3, item.getYearOfProduction());
+        preparedStatement.setDouble(4, item.getPrice());
+        preparedStatement.setDate(5, item.getAuctionEndDate());
+        preparedStatement.setString(6, item.getDescription());
+
+        result = preparedStatement.executeUpdate();
+        conn.close();
+        return result;
+    }
+
+    public static int updateItem(Item item) throws SQLException {
+        int result = 0;
+        Connection conn = DbManager.getConnection();
+        PreparedStatement preparedStatement = conn.prepareStatement("update item set name=?,category=?,yearOfProduction=?,price=?,auctionEndDate=?,description=? where id=?");
+        preparedStatement.setString(1, item.getName());
+        preparedStatement.setString(2, item.getCategory());
+        preparedStatement.setInt(3, item.getYearOfProduction());
+        preparedStatement.setDouble(4, item.getPrice());
+        preparedStatement.setDate(5, item.getAuctionEndDate());
+        preparedStatement.setString(6, item.getDescription());
+
+        result = preparedStatement.executeUpdate();
+        conn.close();
+        return result;
+    }
+
+    public static int deleteItem(int id) throws SQLException {
+        int result = 0;
+        Connection conn = DbManager.getConnection();
+        PreparedStatement preparedStatement = conn.prepareStatement("delete from item where id=?");
+        preparedStatement.setInt(1, id);
+
+        result = preparedStatement.executeUpdate();
+        conn.close();
+        return result;
+    }
+
+    public static Item getItemById(int id) throws SQLException {
+        Item item = new Item();
+        Connection conn = DbManager.getConnection();
+        PreparedStatement preparedStatement = conn.prepareStatement("select * from item where id=?");
+        preparedStatement.setInt(1, id);
+
+        ResultSet resultSet
+                = preparedStatement.executeQuery();
+        if (resultSet.next()) {
+            item.setId(resultSet.getInt(1));
+            item.setName(resultSet.getString(2));
+            item.setCategory(resultSet.getString(3));
+            item.setYearOfProduction(resultSet.getInt(4));
+            item.setPrice(resultSet.getDouble(5));
+            item.setAuctionEndDate(resultSet.getDate(6));
+            item.setDescription(resultSet.getString(7));
+        }
+
+        conn.close();
+        return item;
+    }
+
+    public static List<Item> getAllItems(int start, int total) throws SQLException {
+        List<Item> list = new ArrayList<>();
+        Connection conn = DbManager.getConnection();
+        PreparedStatement preparedStatement = conn.prepareStatement("select * from item limit " + (start -1) + "," + total);
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        while(resultSet.next()) {
+            Item item = new Item();
+            item.setId(resultSet.getInt(1));
+            item.setName(resultSet.getString(2));
+            item.setCategory(resultSet.getString(3));
+            item.setYearOfProduction(resultSet.getInt(4));
+            item.setPrice(resultSet.getDouble(5));
+            item.setAuctionEndDate(resultSet.getDate(6));
+            item.setDescription(resultSet.getString(7));
+            list.add(item);
         }
 
         conn.close();
