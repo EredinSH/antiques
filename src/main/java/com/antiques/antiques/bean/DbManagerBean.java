@@ -17,6 +17,14 @@ public class DbManagerBean implements Serializable  {
     @ManagedProperty(value="dbManagerBean")
     private DbManager dbManager;
 
+    public DbManager getDbManager() {
+        return dbManager;
+    }
+
+    public void setDbManager(DbManager dbManager) {
+        this.dbManager = dbManager;
+    }
+
     public List<User> getUsersList() throws SQLException {
         return DbManager.getAllUsers();
     }

@@ -9,11 +9,16 @@
     <div align="center">
 
         <h1>Witam kierownika!</h1><h2>Prosze zarzadzac strona.</h2>
-            <div class="links">
+        <fieldset>
+            <h:form>
                 <h:commandButton id="mainPage" value="Przejdź do strony głównej" action="mainPage"/>
+            </h:form>
+            <h:form>
                 <h:commandButton id="items" value="Zarzdzaj przedmiotami" action="items"/>
-                <h:commandButton id="users" value="Zarzadzaj listą urzytkowników" action="users"/>
-            </div>
-
+            </h:form>
+            <h:form>
+                <h:commandButton id="users" value="Zarzadzaj listą użytkowników" action="users"/>
+            </h:form>
+        </fieldset>
     </div>
 </h:body></html>
