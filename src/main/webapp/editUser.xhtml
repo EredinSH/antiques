@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<HTML lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />
+    <h:outputStylesheet library="css" name="bootstrap.min.css" />
+    <title>Edit usere</title>
+    <style>
+        .updateBtnStyle {
+            width: 80px !important;
+        }
+    </style>
+</h:head>
+<h:body>
+    <h:form id="form" class="form-horizontal">
+        <div class="form-group">
+            <div class="col-sm-2"></div>
+            <h2 style="text-align: center" class="col-sm-4">Edytuj dane użytkownika</h2>
+        </div>
+        <hr/>
+        <div class="form-group">
+            <h:outputLabel for="name" class="control-label col-sm-2">IMIĘ:</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="name-id" value="#{editRecordObj.name}" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <h:outputLabel for="surname" class="control-label col-sm-2">NAZWISKO:</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="surname-id" value="#{editRecordObj.surname}" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <h:outputLabel for="mail" class="control-label col-sm-2">E-MAIL:</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputTextarea id="mail-id" value="#{editRecordObj.mail}" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <h:outputLabel for="age" class="control-label col-sm-2">WIEK:</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputTextarea id="age-id" value="#{editRecordObj.age}" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <h:outputLabel for="nick" class="control-label col-sm-2">NICK:</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputTextarea id="nick-id" value="#{editRecordObj.nick}" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <h:outputLabel for="account" class="control-label col-sm-2">STAN KONTA:</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputTextarea id="account-id" value="#{editRecordObj.account}" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+                <h:commandButton value="Zaktualizuj" action="#{userBean.editUser(user)}" class="btn btn-primary updateBtnStyle" />
+            </div>
+        </div>
+    </h:form>
+</h:body>
+</HTML>

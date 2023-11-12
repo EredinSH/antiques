@@ -1,65 +1,110 @@
 package com.antiques.antiques.bean;
 
+import com.antiques.antiques.database.UserDatabaseOperation;
 import com.antiques.antiques.model.User;
-import javax.faces.application.FacesMessage;
-import com.antiques.antiques.service.UserService;
+
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
 import java.io.Serializable;
+import java.sql.Array;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 @ManagedBean
-public class UserBean implements Serializable {
+@RequestScoped
+public class UserBean implements Serializable  {
 
-    private List<User> customersList;
+    public int id;
 
-    private User user = new User();
+    public String name;
+    public String surname;
+    public int age;
+    public String nick;
+    public String mail;
+    public Double account;
+    public List<User> usersListFromDB;
 
+    public int getId() {
+        return id;
+    }
 
-    private UserService userService;
+    public void setId(int id) {
+        this.id = id;
+    }
 
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getNick() {
+        return nick;
+    }
+
+    public void setNick(String nick) {
+        this.nick = nick;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public Double getAccount() {
+        return account;
+    }
+
+    public void setAccount(Double account) {
+        this.account = account;
+    }
+
+    @PostConstruct
     public void init() {
-        this.customersList = userService.loadAllUsers();
+        usersListFromDB = UserDatabaseOperation.getAllUsersFromDatabase();
     }
 
-    public void delete(User user) {
-        userService.deleteUser(user);
-        customersList.remove(user);
+    public List<User> usersList() {
+        return usersListFromDB;
     }
 
-    public void add() {
-        userService.addNewUser(user);
-        this.customersList = userService.loadAllUsers();
-        this.user = new User();
+    public String setUser(UserBean user) {
+        return UserDatabaseOperation.setUserInDatabase(user);
     }
 
-    public void update() {
-        userService.updateUser(customersList);
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Update item successful"));
+    public String editUser(int userId) {
+        return UserDatabaseOperation.editUserInDatabase(userId);
     }
 
-    public List<User> getCustomersList() {
-        return customersList;
+    public String updateUser(UserBean user) {
+        return UserDatabaseOperation.updateUserInDatabase(user);
     }
 
-    public void setCustomersList(List<User> customersList) {
-        this.customersList = customersList;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public UserService getUserService() {
-        return userService;
-    }
-
-    public void setUserService(UserService userService) {
-        this.userService = userService;
+    public String deleteUser(int userId) {
+        return UserDatabaseOperation.deleteUserFromDatabase(userId);
     }
 }
