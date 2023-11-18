@@ -7,7 +7,7 @@ import java.sql.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name="ITEMS")
+@Table(name="item")
 public class Item implements Serializable {
 
     @Id
@@ -32,6 +32,15 @@ public class Item implements Serializable {
 
     public Item(int id, String name, String category, int yearOfProduction, Double price, Date auctionEndDate, String description) {
         this.id = id;
+        this.name = name;
+        this.category = category;
+        this.yearOfProduction = yearOfProduction;
+        this.price = price;
+        this.auctionEndDate = auctionEndDate;
+        this.description = description;
+    }
+
+    public Item(String name, String category, int yearOfProduction, Double price, Date auctionEndDate, String description) {
         this.name = name;
         this.category = category;
         this.yearOfProduction = yearOfProduction;
@@ -121,21 +130,4 @@ public class Item implements Serializable {
                 ", description='" + description + '\'' +
                 '}';
     }
-
-    public boolean hasName() {
-        return name != null && !"".equals(name.trim());
-    }
-
-    public boolean hasCategory() {
-        return category != null && !"".equals(category.trim());
-    }
-
-    public boolean hasPrice() {
-        return price != null;
-    }
-
-    public boolean hasAuctionEndDate() {
-        return auctionEndDate != null;
-    }
-
 }

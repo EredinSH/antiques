@@ -18,8 +18,8 @@ public class UserDatabaseOperation {
 
     public static Connection getConnection() {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            String db_url = "jdbc:mysql://localhost:3306/database",
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String db_url = "jdbc:mysql://localhost:3306/antiques",
                     db_userName = "root",
                     db_password = "password";
             connObj = DriverManager.getConnection(db_url, db_userName, db_password);
@@ -33,7 +33,7 @@ public class UserDatabaseOperation {
         ArrayList usersList = new ArrayList();
         try {
             stmtObj = getConnection().createStatement();
-            resultSetObj = stmtObj.executeQuery("SELECT * FROM user");
+            resultSetObj = stmtObj.executeQuery("SELECT * FROM antiques.user");
             while(resultSetObj.next()) {
                 UserBean userBean = new UserBean();
                 userBean.setId(resultSetObj.getInt("id"));
@@ -57,7 +57,7 @@ public class UserDatabaseOperation {
         int saveResult = 0;
         String navigationResult = "";
         try {
-            pstmt = getConnection().prepareStatement("INSERT INTO user(name,surname,age,nick,mail,account) VALUES (?,?,?,?,?,?)");
+            pstmt = getConnection().prepareStatement("INSERT INTO antiques.user(name,surname,age,nick,mail,account) VALUES (?,?,?,?,?,?)");
             pstmt.setString(1, user.getName());
             pstmt.setString(2, user.getSurname());
             pstmt.setInt(3, user.getAge());
@@ -85,7 +85,7 @@ public class UserDatabaseOperation {
 
         try {
             stmtObj = getConnection().createStatement();
-            resultSetObj = stmtObj.executeQuery("SELECT * from user where id = " + userId);
+            resultSetObj = stmtObj.executeQuery("SELECT * from antiques.user where id = " + userId);
             if(resultSetObj != null) {
                 resultSetObj.next();
                 editRecord = new UserBean();
@@ -107,7 +107,7 @@ public class UserDatabaseOperation {
 
     public static String updateUserInDatabase(UserBean user) {
         try {
-            pstmt = getConnection().prepareStatement("UPDATE user SET name=?,surname=?,age=?,nick=?,mail=?,account=? WHERE id=?");
+            pstmt = getConnection().prepareStatement("UPDATE antiques.user SET name=?,surname=?,age=?,nick=?,mail=?,account=? WHERE id=?");
             pstmt.setString(1,user.getName());
             pstmt.setString(2,user.getSurname());
             pstmt.setInt(3,user.getAge());
@@ -125,7 +125,7 @@ public class UserDatabaseOperation {
     public static String deleteUserFromDatabase(int userId){
         System.out.println("deleteUserFromDatabase() : User Id: " + userId);
         try {
-            pstmt = getConnection().prepareStatement("DELETE FROM user WHERE id=" + userId);
+            pstmt = getConnection().prepareStatement("DELETE FROM antiques.user WHERE id=" + userId);
             pstmt.executeUpdate();
             connObj.close();
         } catch(Exception sqlException){

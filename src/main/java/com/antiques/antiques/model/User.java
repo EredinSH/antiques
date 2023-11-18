@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 @Entity
-@Table(name="USERS")
+@Table(name="user")
 public class User implements Serializable {
 
     @Id
@@ -25,6 +25,25 @@ public class User implements Serializable {
     private Double account;
 
     public User() {
+    }
+
+    public User(int id, String name, String surname, int age, String nick, String mail, Double account) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.nick = nick;
+        this.mail = mail;
+        this.account = account;
+    }
+
+    public User(String name, String surname, int age, String nick, String mail, Double account) {
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.nick = nick;
+        this.mail = mail;
+        this.account = account;
     }
 
     public int getId() {
@@ -108,17 +127,4 @@ public class User implements Serializable {
                 ", account=" + account +
                 '}';
     }
-
-    public boolean hasName() {
-        return name != null && !"".equals(name.trim());
-    }
-
-    public boolean hasSurname() {
-        return surname != null && !"".equals(surname.trim());
-    }
-
-    public boolean hasMail() {
-        return mail != null && !"".equals(mail.trim());
-    }
-
 }

@@ -1,25 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
-    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />
-    <h:outputStylesheet library="css" name="bootstrap.min.css" />
     <title>Users List</title>
-    <style>
-        .tableUpdated {
-            width: 90% !important;
-            margin: 17px 58px 0 !important;
-        }
-        .btnSpace {
-            margin: 17px;
-        }
-    </style>
 </h:head>
 <h:body>
     <h1>LISTA UŻYTKOWNIKÓW</h1>
     <h:form id="usersList">
-    <h:dataTable id="usersTable" binding="#{table}" value="#{userBean.usersList()}" var="user" class="table table-striped table-hover table-bordered tableUpdated">
+
+    <h:dataTable id="usersTable" value="#{userBean.usersList()}" var="user" class="table table-striped table-hover table-bordered tableUpdated" style="margin: 2em;" rowKey="#{userBean.id}">
 
         <h:column id="Id">
             <f:facet name="hader">ID</f:facet>
@@ -55,21 +46,24 @@
             <f:facet name="hader">STAN KONTA</f:facet>
             <h:outputText value="#{user.account}"/>
         </h:column>
+
         <h:column>
             <f:facet name="header">Edytuj</f:facet>
-            <h:commandButton action="#{userBean.editUser(user)}" value="Update" class="btn btn-primary" />
+            <h:commandButton action="#{userBean.editUser(user)}" value="Edytuj" class="btn btn-primary" />
         </h:column>
+
         <h:column>
             <f:facet name="header">Usuń</f:facet>
-            <h:commandButton action="#{userBean.deleteUser(user)}" value="Delete" class="btn btn-danger" />
+            <h:commandButton action="#{userBean.deleteUser(user)}" value="Usuń" class="btn btn-danger" />
         </h:column>
+
     </h:dataTable>
     <div>
-        <h:commandButton action="createStudent.xhtml?faces-redirect=true" value="Create New User" class="btn btn-success btnSpace" />
+        <h:commandButton action="createStudent.xhtml?faces-redirect=true" value="Stwórz nowego użytkownika" class="btn btn-success btnSpace" />
     </div>
     <br/>
-    <h:commandButton style="float: right" id="save" value="Save" tyleClass="ui-priority-primary"
-                     action="#{userBean.editUser(user)}" icon="ui-icon-disk" update="growl">
+    <h:commandButton style="float: right" id="save" value="Edytuj" tyleClass="ui-priority-primary"
+                     action="editUser" icon="ui-icon-disk" update="growl">
         <f:ajax execute="@form" render="@form"/>
     </h:commandButton>
     </h:form>
