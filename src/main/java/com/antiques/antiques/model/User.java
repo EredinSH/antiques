@@ -8,9 +8,9 @@ import java.util.Objects;
 public class User implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     @Column(name= "id")
-    private int id;
+    private Long id;
     @Column(name = "name")
     private String name;
     @Column(name = "surname")
@@ -27,7 +27,7 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(int id, String name, String surname, int age, String nick, String mail, Double account) {
+    public User(Long id, String name, String surname, int age, String nick, String mail, Double account) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -46,11 +46,11 @@ public class User implements Serializable {
         this.account = account;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

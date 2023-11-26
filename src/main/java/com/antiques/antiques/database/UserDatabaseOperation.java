@@ -3,14 +3,16 @@ package com.antiques.antiques.database;
 import com.antiques.antiques.bean.UserBean;
 import com.antiques.antiques.model.User;
 
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import java.io.Serializable;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class UserDatabaseOperation {
-
+@SessionScoped
+public class UserDatabaseOperation implements Serializable {
     public static Statement stmtObj;
     public static Connection connObj;
     public static ResultSet resultSetObj;
@@ -36,7 +38,7 @@ public class UserDatabaseOperation {
             resultSetObj = stmtObj.executeQuery("SELECT * FROM antiques.user");
             while(resultSetObj.next()) {
                 UserBean userBean = new UserBean();
-                userBean.setId(resultSetObj.getInt("id"));
+                userBean.setId(resultSetObj.getLong("id"));
                 userBean.setName(resultSetObj.getString("name"));
                 userBean.setSurname(resultSetObj.getString("surname"));
                 userBean.setAge(resultSetObj.getInt("age"));
@@ -89,7 +91,7 @@ public class UserDatabaseOperation {
             if(resultSetObj != null) {
                 resultSetObj.next();
                 editRecord = new UserBean();
-                editRecord.setId(resultSetObj.getInt("id"));
+                editRecord.setId(resultSetObj.getLong("id"));
                 editRecord.setName(resultSetObj.getString("name"));
                 editRecord.setSurname(resultSetObj.getString("surname"));
                 editRecord.setAge(resultSetObj.getInt("age"));
@@ -119,7 +121,7 @@ public class UserDatabaseOperation {
         } catch(Exception sqlException) {
             sqlException.printStackTrace();
         }
-        return "/userssList.xhtml?faces-redirect=true";
+        return "/usersList.xhtml?faces-redirect=true";
     }
 
     public static String deleteUserFromDatabase(int userId){

@@ -2,7 +2,6 @@ package com.antiques.antiques.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-
 import java.sql.Date;
 import java.util.Objects;
 
@@ -11,9 +10,9 @@ import java.util.Objects;
 public class Item implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name= "id")
-    private int id;
+    private Long id;
     @Column(name = "name")
     private String name;
     @Column(name = "category")
@@ -30,16 +29,6 @@ public class Item implements Serializable {
     public Item() {
     }
 
-    public Item(int id, String name, String category, int yearOfProduction, Double price, Date auctionEndDate, String description) {
-        this.id = id;
-        this.name = name;
-        this.category = category;
-        this.yearOfProduction = yearOfProduction;
-        this.price = price;
-        this.auctionEndDate = auctionEndDate;
-        this.description = description;
-    }
-
     public Item(String name, String category, int yearOfProduction, Double price, Date auctionEndDate, String description) {
         this.name = name;
         this.category = category;
@@ -49,11 +38,11 @@ public class Item implements Serializable {
         this.description = description;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

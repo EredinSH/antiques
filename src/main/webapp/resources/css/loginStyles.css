@@ -1,0 +1,16 @@
+h1 {
+    text-align: center;
+    font: 20px Arial, sans-serif;
+    color: midnightblue;
+}
+
+body {
+    font-size: 14px;
+    font-family: 'Open Sans',sans-serif;
+    color: #333;
+    margin: 0;
+    line-height: 1.5;
+    background: #fff url('../images/sky.jpg') no-repeat bottom center / contain;
+    padding-bottom: 60px !important;
+    background-size: 100% 60px;
+}

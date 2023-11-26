@@ -12,11 +12,6 @@
 
     <h:dataTable id="usersTable" value="#{userBean.usersList()}" var="user" class="table table-striped table-hover table-bordered tableUpdated" style="margin: 2em;" rowKey="#{userBean.id}">
 
-        <h:column id="Id">
-            <f:facet name="hader">ID</f:facet>
-            <h:outputText value="#{user.id}"/>
-        </h:column>
-
         <h:column id="First name">
             <f:facet name="hader">IMIĘ</f:facet>
             <h:outputText value="#{user.name}"/>

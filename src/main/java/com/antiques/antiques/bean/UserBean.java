@@ -13,7 +13,7 @@ import java.util.List;
 @RequestScoped
 public class UserBean implements Serializable {
 
-    public int id;
+    public Long id;
 
     public String name;
     public String surname;
@@ -23,11 +23,11 @@ public class UserBean implements Serializable {
     public Double account;
     public List<User> usersListFromDB;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -77,6 +77,14 @@ public class UserBean implements Serializable {
 
     public void setAccount(Double account) {
         this.account = account;
+    }
+
+    public List<User> getUsersListFromDB() {
+        return usersListFromDB;
+    }
+
+    public void setUsersListFromDB(List<User> usersListFromDB) {
+        this.usersListFromDB = usersListFromDB;
     }
 
     @PostConstruct
