@@ -1,114 +1,49 @@
 package com.antiques.antiques.bean;
 
-import com.antiques.antiques.database.UserDatabaseOperation;
 import com.antiques.antiques.model.User;
 
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import java.io.Serializable;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
-@ManagedBean
-@RequestScoped
-public class UserBean implements Serializable {
+/**
+ {@link User} entity.
+ */
 
-    public Long id;
+@Stateless
+public class UserBean {
 
-    public String name;
-    public String surname;
-    public int age;
-    public String nick;
-    public String mail;
-    public Double account;
-    public List<User> usersListFromDB;
+    @PersistenceContext
+    private EntityManager em;
 
-    public Long getId() {
-        return id;
+    public List<User> getAllUsers() {
+        TypedQuery<User> query = em.createQuery("SELECT u FROM User u", User.class);
+        return query.getResultList();
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public List<User> getUserAccount(Double userAccount) {
+        TypedQuery<User> query = em.createQuery("SELECT u FROM User u WHERE u.account >= :userAccount", User.class);
+        query.setParameter("userAccount", userAccount);
+        return query.getResultList();
     }
 
-    public String getName() {
-        return name;
+    public User find(Long id) {
+        return em.find(User.class, id);
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public User merge(User user) {
+        return em.merge(user);
     }
 
-    public String getSurname() {
-        return surname;
+    public void persist(User user) {
+        em.persist(user);
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void remove(User user) {
+        User attached = find(user.getId());
+        em.remove(attached);
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getNick() {
-        return nick;
-    }
-
-    public void setNick(String nick) {
-        this.nick = nick;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
-    public Double getAccount() {
-        return account;
-    }
-
-    public void setAccount(Double account) {
-        this.account = account;
-    }
-
-    public List<User> getUsersListFromDB() {
-        return usersListFromDB;
-    }
-
-    public void setUsersListFromDB(List<User> usersListFromDB) {
-        this.usersListFromDB = usersListFromDB;
-    }
-
-    @PostConstruct
-    public void init() {
-        usersListFromDB = UserDatabaseOperation.getAllUsersFromDatabase();
-    }
-
-    public List<User> usersList() {
-        return usersListFromDB;
-    }
-
-    public String setUser(UserBean user) {
-        return UserDatabaseOperation.setUserInDatabase(user);
-    }
-
-    public String editUser(int userId) {
-        return UserDatabaseOperation.editUserInDatabase(userId);
-    }
-
-    public String updateUser(UserBean user) {
-        return UserDatabaseOperation.updateUserInDatabase(user);
-    }
-
-    public String deleteUser(int userId) {
-        return UserDatabaseOperation.deleteUserFromDatabase(userId);
-    }
 }

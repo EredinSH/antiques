@@ -1,6 +1,7 @@
 package com.antiques.antiques.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
 @Entity
@@ -8,33 +9,29 @@ import java.util.Objects;
 public class User implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotNull
     @Column(name= "id")
     private Long id;
-    @Column(name = "name")
+    @NotNull
+    @Column(name = "name", length = 100)
     private String name;
-    @Column(name = "surname")
+    @NotNull
+    @Column(name = "surname", length = 100)
     private String surname;
-    @Column(name = "age")
+    @NotNull
+    @Column(name = "age", length = 3)
     private int age;
-    @Column(name = "nick")
+    @Column(name = "nick", length = 50)
     private String nick;
-    @Column(name = "mail")
+    @NotNull
+    @Column(name = "mail", length = 100)
     private String mail;
-    @Column(name = "account")
+    @NotNull
+    @Column(name = "account", precision=8, scale=2)
     private Double account;
 
     public User() {
-    }
-
-    public User(Long id, String name, String surname, int age, String nick, String mail, Double account) {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.age = age;
-        this.nick = nick;
-        this.mail = mail;
-        this.account = account;
     }
 
     public User(String name, String surname, int age, String nick, String mail, Double account) {

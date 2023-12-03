@@ -1,6 +1,7 @@
 package com.antiques.antiques.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.Objects;
@@ -11,19 +12,26 @@ public class Item implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotNull
     @Column(name= "id")
     private Long id;
-    @Column(name = "name")
+    @Column(name = "name", length = 100)
+    @NotNull
     private String name;
-    @Column(name = "category")
+    @Column(name = "category", length = 30)
+    @NotNull
     private String category;
-    @Column(name = "yearOfProduction")
+    @Column(name = "yearOfProduction", length = 4)
+    @NotNull
     private int yearOfProduction;
-    @Column(name = "price")
+    @Column(name = "price", precision=8, scale=2)
+    @NotNull
     private Double price;
     @Column(name = "auctionEndDate")
+    @NotNull
     private Date auctionEndDate;
-    @Column(name = "description")
+    @Column(name = "description", length = 3000)
+    @NotNull
     private String description;
 
     public Item() {

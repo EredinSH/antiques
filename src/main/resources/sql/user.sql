@@ -1,13 +1,3 @@
-CREATE TABLE user (
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    surname VARCHAR(100) NOT NULL,
-    age INT(3) NOT NULL,
-    nick VARCHAR(50),
-    mail VARCHAR(100) NOT NULL,
-    account DOUBLE(8,2) NOT NULL
-);
-
 INSERT INTO user (name, surname, age, nick, mail, account) VALUES ('Bogdan','Espan',28,'Bogdano','acordeone@gmail.com',25000.00);
 INSERT INTO user (name, surname, age, nick, mail, account) VALUES ('Nikita','Romanov',34,null,'car123@gmail.com',85500.25);
 INSERT INTO user (name, surname, age, nick, mail, account) VALUES ('Garry','Coolman',48,null,'garryCool@gmail.com',37700.00);

@@ -1,6 +1,6 @@
 package com.antiques.antiques.ui.item;
 
-import com.antiques.antiques.dao.ItemDao;
+import com.antiques.antiques.bean.ItemBean;
 import com.antiques.antiques.model.Item;
 
 import javax.enterprise.context.RequestScoped;
@@ -15,13 +15,13 @@ import java.io.Serializable;
 public class ItemController implements Serializable {
 
     @Inject
-    ItemDao itemDao;
+    ItemBean itemBean;
 
     @Inject
     ItemDatabase itemDatabase;
 
     public void remove(Item item) {
-        itemDao.remove(item);
+        itemBean.remove(item);
         itemDatabase.refresh();
         FacesContext.getCurrentInstance().addMessage(null,new FacesMessage("Usunięto przedmiot " + item.getId()));
     }

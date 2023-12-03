@@ -1,13 +1,3 @@
-CREATE TABLE item (
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    category VARCHAR(30) NOT NULL,
-    yearOfProduction INT(3) NOT NULL,
-    price DOUBLE(8,2) NOT NULL,
-    auctionEndDate DATE NOT NULL,
-    description VARCHAR(3000) NOT NULL
-);
-
 INSERT INTO item (name, category, yearOfProduction, price, auctionEndDate, description) VALUES ('Dwa fotele w stylu Ludwika XVI', 'meble', 1930,12500.00,2025-10-22,'Fotele  z lat 30 –tych XX o klasycyzujacych formach  w typie Ludwika XVI. Drewniane obramienia foteli zdobione bogatą snycerką. Siedziska na sprężynach, tapicerowane tak jak oparcia i fragmenty podłokietników. Proste kanelowane nogi zakończone u góry rozetą wpisaną w kwadrat nawiązują do stylu  à la grecque. Fotele w dobrym stanie zachowania, drewno pokryte patyną, materiał w kilku miejscach wytarty, wymaga wymiany.' );
 INSERT INTO item (name, category, yearOfProduction, price, auctionEndDate, description) VALUES ('Wiktoriański stolik','meble',1850,5900.00, 2025-05-17,'Mebel z drewna mahoniowego, datowany na połowy XIX wieku. Oskrzynia ze ślepą szufladą i schowkiem otwieranym od góry z wnętrzem wyściełanym ciemno bordowym aksamitem. Podstawa złożona z toczonego trzpienia podtrzymującego pałąk w kształcie litery "U". Całość ustawiona na czteroramiennej platformie ze stopami w kształcie łap.');
 INSERT INTO item (name, category, yearOfProduction, price, auctionEndDate, description) VALUES ('Secesyjna garderoba z początku XX wieku','meble',1900,7500.00,2025-03-25,'Garderoba z drewna mahoniowego, datowana na ok.1900/1910 rok. Mebel w formie ażurowej ścianki z wysuniętą podstawą na parasole i schowkiem na szczotki oraz pasty do butów. Cześć górna z lustrem w kształcie podkowy i dwoma rzędami mosiężnych wieszaków umieszczonych po dwóch  stronach ramy. Całość zwieńczona prostym gzymsem. Garderoba po renowacji, wykończona politurą i woskiem.');

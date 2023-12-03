@@ -1,6 +1,6 @@
 package com.antiques.antiques.ui.item;
 
-import com.antiques.antiques.dao.ItemDao;
+import com.antiques.antiques.bean.ItemBean;
 import com.antiques.antiques.model.Item;
 
 import javax.enterprise.context.RequestScoped;
@@ -15,24 +15,24 @@ public class EditItemController {
     ItemForm itemForm;
 
     @Inject
-    ItemDao itemDao;
+    ItemBean itemBean;
 
     public void save() {
-        itemDao.merge(itemForm.getItem());
+        itemBean.merge(itemForm.getItem());
     }
 
     public void preRenderViewEvent() {
         if(itemForm.getItem() == null) {
-            initializeItems();
+            initializeItem();
         }
     }
 
-    public void initializeItems() {
+    public void initializeItem() {
         if(itemForm.getItemId() == null) {
             itemForm.setItem(new Item());
             return;
         }
-        Item item = itemDao.find(itemForm.getItemId());
+        Item item = itemBean.find(itemForm.getItemId());
         itemForm.setItem(item);
     }
 }

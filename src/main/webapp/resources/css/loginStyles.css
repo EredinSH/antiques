@@ -1,16 +1,31 @@
 h1 {
     text-align: center;
-    font: 20px Arial, sans-serif;
-    color: midnightblue;
+    font: 28px Arial, sans-serif;
+    color: peru;
+    text-shadow: 2px 2px 4px #000000;
 }
 
-body {
-    font-size: 14px;
+h5 {
+    /*text-align: center;*/
+    font: 22px Arial, sans-serif;
+    color: peru;
+}
+
+.body {
+    font-size: 18px;
     font-family: 'Open Sans',sans-serif;
-    color: #333;
-    margin: 0;
-    line-height: 1.5;
-    background: #fff url('../images/sky.jpg') no-repeat bottom center / contain;
-    padding-bottom: 60px !important;
-    background-size: 100% 60px;
+    color: black;
+    background-color: cadetblue;
+    background-image: url("images/castle.jpg");
+    background-size: 100%;
+}
+
+.formLogin {
+    position: absolute;
+    left: 30%;
+    top: 15%;
+    margin: 20px;
+    max-width: 300px;
+    padding: 16px;
+    background-color: antiquewhite;
 }

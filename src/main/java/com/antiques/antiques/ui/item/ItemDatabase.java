@@ -1,6 +1,6 @@
 package com.antiques.antiques.ui.item;
 
-import com.antiques.antiques.dao.ItemDao;
+import com.antiques.antiques.bean.ItemBean;
 import com.antiques.antiques.model.Item;
 import org.omnifaces.cdi.ViewScoped;
 
@@ -13,7 +13,7 @@ import java.util.List;
 @Named
 public class ItemDatabase implements Serializable {
     @Inject
-    ItemDao itemDao;
+    ItemBean itemBean;
 
     @Inject
     ItemSearchForm itemSearchForm;
@@ -29,9 +29,9 @@ public class ItemDatabase implements Serializable {
 
     public void refresh() {
         if(itemSearchForm.getAuctionEndDateExist() == null) {
-            values = itemDao.getAllItems();
+            values = itemBean.getAllItems();
         } else {
-            values = itemDao.getAuctionEndDateExist(itemSearchForm.getAuctionEndDateExist());
+            values = itemBean.getAuctionEndDateExist(itemSearchForm.getAuctionEndDateExist());
         }
     }
 }
