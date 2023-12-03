@@ -6,6 +6,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -20,6 +21,12 @@ public class ItemDao {
 
     public List<Item> getAllItems() {
         TypedQuery<Item> query = em.createQuery("SELECT i FROM Item i", Item.class);
+        return query.getResultList();
+    }
+
+    public List<Item> getAuctionEndDateExist(Date auctionEndDateExist) {
+        TypedQuery<Item> query = em.createQuery("SELECT i FROM Item i WHERE i.auctionEndDate >= :auctionEndDateExist", Item.class);
+        query.setParameter("auctionEndDateExist", auctionEndDateExist);
         return query.getResultList();
     }
 
