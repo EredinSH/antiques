@@ -2,50 +2,39 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-    >
+      xmlns:h="http://java.sun.com/jsf/html">
 <h:head>
     <meta content="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <h:outputStylesheet library="" name="css/loginStyles.css"/>
-    <link rel="stylesheet" type="text/css" href="../resources/css/loginStyles.css"/>
-    <title>Main Page</title>
+    <title>Login Page</title>
 </h:head>
 <h:body styleClass="body">
-    <div class="site" align="center">
 
-<h1> Witaj użytkowniku! Przed Tobą niesamowity i tajemniczy świat antyków. Aby zobaczyć dostępną kolekcję musisz się zalogować.
-</h1>
+    <h1> Witaj użytkowniku! Przed Tobą niesamowity i tajemniczy świat antyków.<br/>
+        Aby zobaczyć dostępną kolekcję musisz się zalogować.<br/>
+    </h1>
     <hr/>
 
-<h:form styleClass="formLogin">
-    <h:messages style="color: red; font-weight: bold;"/>
-<h:panelGrid>
-    <div>
-            <h5>Logowanie</h5>
-    </div>
-    <div>
+    <h:form styleClass="formLogin">
+        <h:messages style="color: red; font-weight: bold;"/>
+        <h:panelGrid>
+            <div>
+                <h:outputLabel value="Login" for="loginInputText" />
 
-            <h:outputLabel value="Login" for="loginInputText" />
+                <h:inputText id="loginInputText" value="#{loginBean.userLogin}" required="true"
+                             requiredMessage="Login jest wymagany" />
 
-            <h:inputText id="loginInputText" value="#{loginBean.userLogin}" required="true"
-                         requiredMessage="Login jest wymagany" />
-    </div>
-    <div>
+                <h:outputLabel value="Hasło" for="passwordInputText" />
 
-            <h:outputLabel value="Hasło" for="passwordInputText" />
+                <h:inputText id="passwordInputText" value="#{loginBean.userPassword}" required="true"
+                             requiredMessage="Hasło jest wymagane" />
+            </div>
+            <div id="loginButton">
+                <h:commandButton value="Zaloguj mnie" action="#{loginBean.login}" update="growl" />
+            </div>
+        </h:panelGrid>
+    </h:form>
 
-            <h:inputText id="passwordInputText" value="#{loginBean.userPassword}" required="true"
-                        requiredMessage="Hasło jest wymagane" />
-
-    </div>
-    <div>
-
-            <h:commandButton value="Zaloguj mnie" action="#{loginBean.login}" update="growl" />
-
-    </div>
-</h:panelGrid>
-</h:form>
-    </div>
 </h:body>
 </html>

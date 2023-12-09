@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <meta content="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <h:outputStylesheet library="css" name="adminPage.css"/>
+    <h:outputScript library="js" name="adminPage.js" />
+    <title>Admin Page</title>
+</h:head>
+<h:body>
+
+
+    <div class="sb-sidebar sb-bar-block sb-card sb-animate-left" style="display:none" id="mySidebar">
+        <button class="sb-bar-item sb-button sb-large"
+                onclick="sbClose()">Zamknij &times;</button>
+        <a href="#" class="sb-bar-item sb-button">Strona Główna</a>
+        <button class="sb-button sb-block sb-left-align" onclick="userSideBarFunc()">
+            Użytkownicy <i class="fa fa-caret-down"></i>
+        </button>
+        <div id="userMenu" class="sb-hide sb-white sb-card">
+            <a href="#" class="sb-bar-item sb-button">Lista użytkowników</a>
+        </div>
+        <button class="sb-button sb-block sb-left-align" onclick="itemSideBarFunc()">
+            Przedmioty <i class="fa fa-caret-down"></i>
+        </button>
+        <div id="itemMenu" class="sb-hide sb-white sb-card">
+            <a href="#" class="sb-bar-item sb-button">Lista przedmiotów</a>
+            <a href="#" class="sb-bar-item sb-button">Meble</a>
+            <a href="#" class="sb-bar-item sb-button">Akcesoria</a>
+            <a href="#" class="sb-bar-item sb-button">Obrazy</a>
+            <a href="#" class="sb-bar-item sb-button">Inne</a>
+        </div>
+    </div>
+
+    <div id="main">
+
+    <div class="sb-teal">
+        <button id="openNav" class="sb-button sb-teal sb-xlarge" onclick="sbOpen()">&#9776;</button>
+        <div class="sb-container">
+
+            <div align="center" class="mainBody">
+
+                <h1>Witam kierownika!</h1><h2>Prosze zarzadzac strona.</h2>
+                <p>Tutaj można otworzyć widok strony głównej</p>
+                <fieldset>
+                    <h:form>
+                        <h:commandButton id="mainPage" value="Przejdź do strony głównej" action="mainPage"/>
+                    </h:form>
+                </fieldset>
+
+                <p>Tutaj można wejść na opcje dostępne dla przedmiotów</p>
+                <fieldset>
+                    <h:form>
+                        <h:commandButton id="items" value="Zarzdzaj przedmiotami" action="itemPage"/>
+                    </h:form>
+                </fieldset>
+
+                <p>Tutaj można wejść na opcje dostępne dla listy użytkoników</p>
+                <fieldset>
+                    <h:form>
+                        <h:commandButton id="users" value="Zarzadzaj listą użytkowników" action="users"/>
+                    </h:form>
+                </fieldset>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="sb-container">
+
+    </div>
+    </div>
+
+</h:body></html>

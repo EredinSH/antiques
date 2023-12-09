@@ -1,31 +1,31 @@
 h1 {
     text-align: center;
-    font: 28px Arial, sans-serif;
+    font-size: 28px;
+    font-family: Arial, serif;
     color: peru;
     text-shadow: 2px 2px 4px #000000;
-}
-
-h5 {
-    /*text-align: center;*/
-    font: 22px Arial, sans-serif;
-    color: peru;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
 .body {
-    font-size: 18px;
-    font-family: 'Open Sans',sans-serif;
-    color: black;
-    background-color: cadetblue;
-    background-image: url("images/castle.jpg");
+    background-image: url("../../resources/images/castle.jpg");
     background-size: 100%;
 }
 
 .formLogin {
+    font-size: 22px;
+    font-family: 'Open Sans',sans-serif;
+    color: tan;
+    text-shadow: 2px 2px 4px #000000;
     position: absolute;
     left: 30%;
-    top: 15%;
+    top: 12%;
     margin: 20px;
     max-width: 300px;
     padding: 16px;
-    background-color: antiquewhite;
+}
+
+#loginButton {
+    font-size: 20px;
 }

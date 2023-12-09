@@ -9,14 +9,14 @@
     <name>antiques</name>
     <packaging>war</packaging>
 
-    <url>http://wildfly.org</url>
-    <licenses>
-        <license>
-            <name>Apache License, Version 2.0</name>
-            <distribution>repo</distribution>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
-        </license>
-    </licenses>
+<!--    <url>http://wildfly.org</url>-->
+<!--    <licenses>-->
+<!--        <license>-->
+<!--            <name>Apache License, Version 2.0</name>-->
+<!--            <distribution>repo</distribution>-->
+<!--            <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>-->
+<!--        </license>-->
+<!--    </licenses>-->
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -115,12 +115,12 @@
 
     <build>
 
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
+<!--        <resources>-->
+<!--            <resource>-->
+<!--                <directory>src/main/resources</directory>-->
+<!--                <filtering>true</filtering>-->
+<!--            </resource>-->
+<!--        </resources>-->
 
         <finalName>${project.artifactId}</finalName>
         <plugins>

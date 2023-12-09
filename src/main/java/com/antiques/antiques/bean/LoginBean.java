@@ -30,7 +30,7 @@ public class LoginBean implements Serializable {
     public String login() {
         FacesContext context = FacesContext.getCurrentInstance();
         if(getUserLogin().trim().equals("admin") && getUserPassword().trim().equals("password123")) {
-            return "adminWeb";
+            return "adminPage";
         }
         if(getUserLogin().trim().equals("user") && getUserPassword().trim().equals("password")) {
             return "mainPage";
