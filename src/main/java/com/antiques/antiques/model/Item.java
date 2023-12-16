@@ -15,22 +15,22 @@ public class Item implements Serializable {
     @NotNull
     @Column(name= "id")
     private Long id;
-    @Column(name = "name", length = 100)
+    @Column(name = "name", length = 100, nullable=false)
     @NotNull
     private String name;
-    @Column(name = "category", length = 30)
+    @Column(name = "category", length = 30, nullable=false)
     @NotNull
     private String category;
-    @Column(name = "yearOfProduction", length = 4)
+    @Column(name = "yearOfProduction", length = 4, nullable=false)
     @NotNull
     private int yearOfProduction;
-    @Column(name = "price", precision=8, scale=2)
+    @Column(name = "price", precision=8, scale=2, nullable=false)
     @NotNull
     private Double price;
-    @Column(name = "auctionEndDate")
+    @Column(name = "auctionEndDate", nullable=false)
     @NotNull
     private Date auctionEndDate;
-    @Column(name = "description", length = 3000)
+    @Column(name = "description", length = 3000, nullable=false)
     @NotNull
     private String description;
 

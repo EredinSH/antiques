@@ -1,36 +1,17 @@
-function userSideBarFunc() {
-    var x = document.getElementById("userMenu");
-    if (x.className.indexOf("sb-show") === -1) {
-        x.className += " sb-show";
-        x.previousElementSibling.className += " sb-green";
-    } else {
-        x.className = x.className.replace(" sb-show", "");
-        x.previousElementSibling.className =
-            x.previousElementSibling.className.replace(" sb-green", "");
+function calender(){
+    var day=['Poniedziałek','Wtorek','Środa','Czwartek','Piątek','Sobota','Niedziela'];
+    var month= ["Styczeń","Luty","Marzec","Kwiecień","Maj","Czerwiec","Lipiec",
+        "Sierpień","Wrzesień","Październik","Listopad","Grudzień"];
+    var d=new Date();
+    setText('calenderDay',day[d.getDay()]);
+    setText('calenderDate',d.getDate());
+    setText('calenderMonthYear',month[d.getMonth()]+' '+(1900+d.getYear()));
+};
+function setText(id, val){
+    if(val<10){
+        val='0'+val;
     }
-}
-
-function itemSideBarFunc() {
-    var x = document.getElementById("itemMenu");
-    if (x.className.indexOf("sb-show") === -1) {
-        x.className += " sb-show";
-        x.previousElementSibling.className += " sb-green";
-    } else {
-        x.className = x.className.replace(" sb-show", "");
-        x.previousElementSibling.className =
-            x.previousElementSibling.className.replace(" sb-green", "");
-    }
-}
-
-function sbOpen() {
-    document.getElementById("main").style.marginLeft = "25%";
-    document.getElementById("mySidebar").style.width = "25%";
-    document.getElementById("mySidebar").style.display = "block";
-    document.getElementById("openNav").style.display = 'none';
-}
-
-function sbClose() {
-    document.getElementById("main").style.marginLeft = "0%";
-    document.getElementById("mySidebar").style.display = "none";
-    document.getElementById("openNav").style.display = "inline-block";
-}
+    document.getElementById(id).innerHTML=val;
+};
+// call calender()
+window.onload=calender;

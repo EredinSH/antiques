@@ -6,20 +6,24 @@
         http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 
     <persistence-unit name="antiques">
-        <class>com.antiques.antiques.model.Item</class>
-        <class>com.antiques.antiques.model.User</class>
+<!--        <class>com.antiques.antiques.model.Item</class>-->
+<!--        <class>com.antiques.antiques.model.User</class>-->
 
         <properties>
             <property name="javax.persistence.jdbc.url"
                       value="jdbc:mysql://localhost:3306/antiques" />
-            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+            <property name="javax.persistence.jdbc.driver"
+                      value="com.mysql.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.user"
                       value="root" />
             <property name="javax.persistence.jdbc.password"
                       value="password" />
-            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
 
-            <property name="hibernate.hbm2ddl.auto" value="update" />
         </properties>
 
     </persistence-unit>

@@ -14,21 +14,21 @@ public class User implements Serializable {
     @Column(name= "id")
     private Long id;
     @NotNull
-    @Column(name = "name", length = 100)
+    @Column(name = "name", length = 100, nullable=false)
     private String name;
     @NotNull
-    @Column(name = "surname", length = 100)
+    @Column(name = "surname", length = 100, nullable=false)
     private String surname;
     @NotNull
-    @Column(name = "age", length = 3)
+    @Column(name = "age", length = 3, nullable=false)
     private int age;
     @Column(name = "nick", length = 50)
     private String nick;
     @NotNull
-    @Column(name = "mail", length = 100)
+    @Column(name = "mail", length = 100, nullable=false)
     private String mail;
     @NotNull
-    @Column(name = "account", precision=8, scale=2)
+    @Column(name = "account", precision=8, scale=2, nullable=false)
     private Double account;
 
     public User() {
