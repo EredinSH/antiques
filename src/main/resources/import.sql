@@ -14,3 +14,14 @@ INSERT INTO item (name, category, yearOfProduction, price, auctionEndDate, descr
 INSERT INTO item (name, category, yearOfProduction, price, auctionEndDate, description) VALUES ('Zegar kominkowy ze szklanym kloszem','akcesoria',1925,2300.00,2025-05-05,' Zegar  z ok. 1930 roku na drewnianej podstawie z nakładanym szklanym kloszem. Efektowna, metalowa obudowa zegara z emblematami mysliwskimi, zwieńczona pełnoplastyczną figurą mysliwego na koniu. Zegar nakrecany na kluczyk, wybija połówki i pełne godziny. Mechanizm sprawny, po gruntownej naprawie i przeglądzie zegarmistrzowskim. Klosz pekniety z tyłu na całej wysokości. Obudowa zegara z naprwaianą nogą.');
 INSERT INTO item (name, category, yearOfProduction, price, auctionEndDate, description) VALUES ('Przedwojenny model jachtu','inne',1927,3500.00,2025-02-20,'Wiernie odwzorowany model jachtu, datowany na okres XX-lecia miedzywojennego. Stan zachowania bardzo dobry.');
 INSERT INTO item (name, category, yearOfProduction, price, auctionEndDate, description) VALUES ('Duży gobelin', 'inne', 1920,1200.00,2025-04-12,'Z przedstawieniem sceny rodzajowej z grającymi w kule mężczyznami. Tkanina bez ramy naciągnięta na nowe krosna. Wielkość 120 x 90 cm. Stan zachowania bardzo dobry, tkanina nie ma uszkodzeń.');
+
+
+INSERT INTO user (name, surname, age, nick, mail, account) VALUES ('Bogdan','Espan',28,'Bogdano','acordeone@gmail.com',25000.00);
+INSERT INTO user (name, surname, age, nick, mail, account) VALUES ('Nikita','Romanov',34,null,'car123@gmail.com',85500.25);
+INSERT INTO user (name, surname, age, nick, mail, account) VALUES ('Garry','Coolman',48,null,'garryCool@gmail.com',37700.00);
+INSERT INTO user (name, surname, age, nick, mail, account) VALUES ('Jose','Purro',24,'JPurr','messageHere@gmail.com',14820.00);
+INSERT INTO user (name, surname, age, nick, mail, account) VALUES ('Matilda','Rosa',33,'MatildaOneOne','matiER@gmail.com',55750.50);
+INSERT INTO user (name, surname, age, nick, mail, account) VALUES ('Jonathan','Bernn',27,'Jonas','furD@gmail.com',22300.00);
+INSERT INTO user (name, surname, age, nick, mail, account) VALUES ('Carmen','Baske',55,null,'baskeCar@gmail.com',128000.00);
+INSERT INTO user (name, surname, age, nick, mail, account) VALUES ('John','Smith',47,'JohnUSA','johnSmith@gmail.com',154500.00);
+INSERT INTO user (name, surname, age, nick, mail, account) VALUES ('Alhum','Bahhantur',39,'All_deal','alhumCompanyHouse@gmail.com',275750.00);

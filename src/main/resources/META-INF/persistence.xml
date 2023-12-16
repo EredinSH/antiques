@@ -6,8 +6,8 @@
         http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 
     <persistence-unit name="antiques">
-<!--        <class>com.antiques.antiques.model.Item</class>-->
-<!--        <class>com.antiques.antiques.model.User</class>-->
+        <class>com.antiques.antiques.model.Item</class>
+        <class>com.antiques.antiques.model.User</class>
 
         <properties>
             <property name="javax.persistence.jdbc.url"
@@ -23,6 +23,8 @@
             <property name="hibernate.use_sql_comments" value="true"/>
             <property name="hibernate.hbm2ddl.auto" value="create"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
+            <property name="hibernate.hbm2ddl.import_files_sql_extractor"
+                      value="org.hibernate.tool.hbm2ddl.MultipleLinesSqlCommandExtractor"/>
 
         </properties>
 
