@@ -3,7 +3,7 @@ package com.antiques.antiques.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -28,6 +28,7 @@ public class Item implements Serializable {
     @NotNull
     private Double price;
     @Column(name = "auctionEndDate", nullable=false)
+    @Temporal(TemporalType.DATE)
     @NotNull
     private Date auctionEndDate;
     @Column(name = "description", length = 3000, nullable=false)
@@ -86,7 +87,7 @@ public class Item implements Serializable {
         this.price = price;
     }
 
-    public java.sql.Date getAuctionEndDate() {
+    public Date getAuctionEndDate() {
         return auctionEndDate;
     }
 

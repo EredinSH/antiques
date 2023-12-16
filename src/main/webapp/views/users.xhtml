@@ -12,12 +12,18 @@
     <h1>Jesteś na stronie użytkowników!</h1>
     <h2>Zarzadzaj listą użytkowników</h2>
 
+    <div class="searchTagResult">
+        Wyszukaj użytkownika:
+            <h:inputText value="#{userSearchForm.userName}" required="true">
+                <f:ajax event="valueChange" listener="#{userDatabase.refresh}" update=":userForm @form"/>
+            </h:inputText>
+    </div>
 
     <p:growl id="growl" globalOnly="true"/>
     <div align="center">
         <h2><h:outputText value="Lista użytkowników"/></h2>
         <h:form id="userForm">
-            <p:dataTable id="studentTable" value="#{userDatabase.values}" var="usr" class="usersTable" rows="5" paginator="true">
+            <p:dataTable id="usersTable" value="#{userDatabase.values}" var="usr" class="usersTable" rows="5" paginator="true">
                 <p:column sortBy="#{usr.id}" name="header" id="idColumn">
                     <f:facet name="header">ID</f:facet>
                     <h:link value="#{usr.id}" outcome="editUser">
@@ -49,7 +55,7 @@
                     #{usr.account}
                 </p:column>
                 <p:column name="delete" id="deleteButton">
-                    <p:commandButton action="#{userController.remove(usr)}" icon="ui-icon-trash" class="btn btn-danger" />
+                    <p:commandButton action="#{userController.remove(usr)}" icon="ui-icon-trash" class="btn btn-danger" update="@form growl"/>
                 </p:column>
             </p:dataTable>
 

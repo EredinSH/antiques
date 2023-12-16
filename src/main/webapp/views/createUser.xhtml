@@ -1,82 +1,44 @@
-<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:p="http://primefaces.org/ui">
+
 <h:head>
-    <title>Create User</title>
+    <title>Stwórz użytkownika</title>
 </h:head>
 <h:body>
+    <h:form id="userForm">
+        <h:panelGrid columns="3">
 
-<h1> "Create User!"
-</h1>
+            <p:outputLabel for="userName" value="IMIĘ"/>
+            <p:inputText id="userName" value="#{userForm.user.name}"/>
+            <p:message for="userName"/>
 
-    <h:form id="createUserForm" class="form-horizontal">
-        <div class="form-group">
-            <div class="col-sm-4">
-                <h2>Utwórz użytkownika</h2>
-            </div>
-        </div>
-        <hr/>
-        <div class="form-group">
-            <h:outputLabel for="name" class="control-label col-sm-4">IMIĘ:</h:outputLabel>
-            <div class="col-sm-4">
-                <h:inputText id="name-id" value="#{userBean.name}" class="form-control" validatorMessage="Imię użytkownika jest wymagane">
-                    <f:validateRequired />
-                </h:inputText>
-            </div>
-        </div>
-        <div class="form-group">
-            <h:outputLabel for="surname" class="control-label col-sm-4">NAZWISKO:</h:outputLabel>
-            <div class="col-sm-4">
-                <h:inputText id="surname-id" value="#{userBean.surname}" class="form-control" validatorMessage="Nazwisko użytkownika jest wymagane">
-                    <f:validateRequired />
-                </h:inputText>
-            </div>
-        </div>
-        <div class="form-group">
-            <h:outputLabel for="mail" class="control-label col-sm-4">E-MAIL:</h:outputLabel>
-            <div class="col-sm-4">
-                <h:inputText id="mail-id" value="#{userBean.mail}" class="form-control" validatorMessage="E-mail użytkownika jest wymagany">
-                    <f:validateRequired />
-                </h:inputText>
-            </div>
-        </div>
-        <div class="form-group">
-            <h:outputLabel for="age" class="control-label col-sm-4">WIEK:</h:outputLabel>
-            <div class="col-sm-4">
-                <h:inputText id="age-id" value="#{userBean.age}" class="form-control" validatorMessage="Wiek użytkownika jest wymagany">
-                    <f:validateRequired />
-                </h:inputText>
-            </div>
-        </div>
-        <div class="form-group">
-            <h:outputLabel for="nick" class="control-label col-sm-4">NICK:</h:outputLabel>
-            <div class="col-sm-4">
-                <h:inputText id="nick-id" value="#{userBean.nick}" class="form-control">
-                </h:inputText>
-            </div>
-        </div>
-        <div class="form-group">
-            <h:outputLabel for="account" class="control-label col-sm-4">STAN KONTA:</h:outputLabel>
-            <div class="col-sm-4">
-                <h:inputText id="account-id" value="#{userBean.account}" class="form-control" validatorMessage="Stan konta użytkownika jest wymagany">
-                    <f:validateRequired />
-                </h:inputText>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-sm-4"></div>
-            <div>
-                <h:form>
-                    <h:commandButton value="Zapisz" action="#{userBean.setUser(userBean)}"/>
-                </h:form>
-                <div class="col-sm-1">
-                </div>
-                <h:form>
-                    <h:commandButton value="Zobacz listę użytkowników" action="usersList" />
-                </h:form>
-            </div>
-        </div>
-        </h:form>
+            <p:outputLabel for="lastName" value="NAZWISKO"/>
+            <p:inputText id="lastName" value="#{userForm.user.surname}"/>
+            <p:message for="lastName"/>
+
+            <p:outputLabel for="userAge" value="WIEK"/>
+            <p:inputText id="userAge" value="#{userForm.user.age}"/>
+            <p:message for="userAge"/>
+
+            <p:outputLabel for="userNick" value="NICK"/>
+            <p:inputText id="userNick" value="#{userForm.user.nick}"/>
+            <p:message for="userNick"/>
+
+            <p:outputLabel for="userMail" value="MAIL"/>
+            <p:inputText id="userMail" value="#{userForm.user.mail}"/>
+            <p:message for="userMail"/>
+
+            <p:outputLabel for="userAccount" value="STAN KONTA"/>
+            <p:inputText id="userAccount" value="#{userForm.user.account}"/>
+            <p:message for="userAccount"/>
+
+
+            <p:commandButton action="#{userController.saveUser}" value="Zapisz"/>
+            <p:button outcome="users" value="Wyjdź"/>
+        </h:panelGrid>
+    </h:form>
 </h:body>
 </html>

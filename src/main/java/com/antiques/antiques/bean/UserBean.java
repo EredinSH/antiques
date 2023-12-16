@@ -23,9 +23,9 @@ public class UserBean {
         return query.getResultList();
     }
 
-    public List<User> getUserAccount(Double userAccount) {
-        TypedQuery<User> query = em.createQuery("SELECT u FROM User u WHERE u.account >= :userAccount", User.class);
-        query.setParameter("userAccount", userAccount);
+    public List<User> getUserName(String userName) {
+        TypedQuery<User> query = em.createQuery("SELECT u FROM User u WHERE u.name = :userName", User.class);
+        query.setParameter("userName", userName);
         return query.getResultList();
     }
 

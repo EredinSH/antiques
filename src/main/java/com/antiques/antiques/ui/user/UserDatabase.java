@@ -29,10 +29,10 @@ public class UserDatabase implements Serializable {
     }
 
     public void refresh() {
-        if(userSearchForm.getUserAccount() == null) {
+        if(userSearchForm.getUserName() == null) {
             values = userBean.getAllUsers();
         } else {
-            values = userBean.getUserAccount(userSearchForm.getUserAccount());
+            values = userBean.getUserName(userSearchForm.getUserName());
         }
     }
 

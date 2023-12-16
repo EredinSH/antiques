@@ -1,56 +1,70 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-<h:head>
-    <title>Items List</title>
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head><title>Przedmioty</title>
 </h:head>
 <h:body>
-    <h1>LISTA PRZEDMIOTÓW</h1>
-    <h:form>
-        <h:panelGrid columns="12" cellpadding="5">
-            <div>Przedmiot</div>
-            <h:inputText value="#{itemBean.name}"/><h:outputText value="Nazwa " />
-            <h:inputText value="#{itemBean.category}" /><h:outputText value="Kategoria " />
-            <h:inputText value="#{itemBean.yearOfProduction}"/><h:outputText value="Rok produkcji " />
-            <h:inputText value="#{itemBean.price}"/><h:outputText value="Cena " />
-            <h:inputText value="#{itemBean.auctionEndDate}"/><h:outputText value="Data zakończenia aukcji " />
-            <h:inputText value="#{itemBean.description}"/><h:outputText value="Opis " />
-            <h:commandButton value="Dodaj" icon="fa fa-fw fa-plus" action="#{itemBean.setItem()}"/>
-        </h:panelGrid>
 
-    </h:form><h:form  id="form">
-    <h:dataTable value="#{itemBean.itemsList()}" var="item" style="margin: 2em;" rowKey="#{itemBean.id}">
-        <h:column headerText="Nazwa">
-            <h:outputText value="#{itemBean.name}"/>
-        </h:column><h:column headerText="Kategoria">
-        <h:outputText value="#{itemBean.category}"/>
-    </h:column><h:column headerText="Rok produkcji">
-        <h:outputText value="#{itemBean.yearOfProduction}"/>
-    </h:column><h:column headerText="Cena">
-        <h:outputText value="#{itemBean.price}"/>
-    </h:column><h:column headerText="Data zakończenia aukcji">
-        <h:outputText value="$#{itemBean.auctionEndDate}"/>
-    </h:column><h:column headerText="Opis">
-        <h:outputText value="$#{itemBean.description}"/>
-    </h:column><h:column style="width:100px;text-align: center">
-        <h:commandButton icon="fa fa-pencil" oncomplete="PF('editDialog').show()">
-            <f:setPropertyActionListener value="#{itemBean}" target="#{itemBean.editItem(itemBean)}"/>
-        </h:commandButton>
-        <h:commandButton action="#{itemBean.deleteItem(itemId)}" icon="fa fa-trash"></h:commandButton>
-    </h:column>
-    </h:dataTable>
-    <h:panelGrid id="itemEdit" style="text-align:center;">
-        <h:panelGrid  columns="2" rendered="#{not empty itemBean.itemsList()}" columnClasses="label,value"><h:outputText value="Przedmiot: " />
-            <h:inputText value="#{itemBean.name}" /><h:outputText value="Nazwa: " />
-            <h:inputText value="#{itemBean.category}" /><h:outputText value="Kategoria: " />
-            <h:inputText value="#{itemBean.yearOfProduction}"/><h:outputText value="Rok produkcji: $" />
-            <h:inputText value="#{itemBean.price}" /><h:outputText value="Cena: " />
-            <h:inputText value="#{itemBean.auctionEndDate}" /><h:outputText value="Data zakończenia aukcji: " />
-            <h:inputText value="#{itemBean.description}" /><h:outputText value="Opis: " />
-        </h:panelGrid><h:commandButton value="Zaktualizuj" icon="fa fa-fw fa-pencil" action="#{itemBean.updateItem(itemBean)}"/>
-    </h:panelGrid>
-</h:form>
+    <h1>Jesteś na stronie przedmiotów!</h1>
+    <h2>Zarzadzaj listą przedmiortów</h2>
+
+    <div class="searchTagResult">
+        Wyszukaj kategorię:
+        <h:inputText value="#{userSearchForm.userName}" required="true">
+            <f:ajax event="valueChange" listener="#{userDatabase.refresh}" update=":userForm @form"/>
+        </h:inputText>
+    </div>
+
+    <p:growl id="growl" globalOnly="true"/>
+    <div align="center">
+        <h2><h:outputText value="Lista przedmiotów"/></h2>
+        <h:form id="itemForm">
+            <p:dataTable id="itemTable" value="#{itemDatabase.values}" var="itm" class="itemsTable" rows="5" paginator="true">
+                <p:column sortBy="#{itm.id}" name="header" id="idColumn">
+                    <f:facet name="header">ID</f:facet>
+                    <h:link value="#{itm.id}" outcome="editItem">
+                        <f:param name="userId" value="#{itm.id}"/>
+                    </h:link>
+                </p:column>
+                <p:column sortBy="#{itm.name}" name="header" id="nameColumn">
+                    <f:facet name="header">NAZWA</f:facet>
+                    <h:link value="#{itm.name}" outcome="itemPage">
+                        <f:param name="userId" value="#{itm.name}"/>
+                    </h:link>
+                </p:column>
+                <p:column sortBy="#{itm.category}" name="header" id="categoryColumn">
+                    <f:facet name="header">KATEGORIA</f:facet>
+                    #{itm.category}
+                </p:column>
+                <p:column sortBy="#{itm.yearOfProduction}" name="header" id="yearOfProductionColumn">
+                    <f:facet name="header">ROK PRODUKCJI</f:facet>
+                    #{itm.yearOfProduction}
+                </p:column>
+                <p:column sortBy="#{itm.price}" name="header" id="priceColumn">
+                    <f:facet name="header">CENA</f:facet>
+                    #{itm.price}
+                </p:column>
+                <p:column sortBy="#{itm.auctionEndDate}" name="header" id="auctionEndDateColumn">
+                    <f:facet name="header">DATA ZAKOŃCZENIA AUKCJI</f:facet>
+                    #{itm.auctionEndDate}
+                </p:column>
+                <p:column sortBy="#{itm.description}" name="header" id="descriptionColumn">
+                    <f:facet name="header">OPIS</f:facet>
+                    #{itm.description}
+                </p:column>
+                <p:column name="delete" id="deleteButton">
+                    <p:commandButton action="#{itemController.remove(itm)}" icon="ui-icon-trash" class="btn btn-danger" update="@form growl"/>
+                </p:column>
+            </p:dataTable>
+
+            <p:commandButton action="createItem.xhtml?faces-redirect=true" value="Dodaj przedmiot" class="btn btn-success btnSpace" />
+
+        </h:form>
+
+    </div>
 </h:body>
 </html>

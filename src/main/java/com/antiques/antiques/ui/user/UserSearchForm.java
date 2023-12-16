@@ -8,13 +8,13 @@ import java.io.Serializable;
 @Named
 public class UserSearchForm implements Serializable {
 
-    private Double userAccount;
-    public Double getUserAccount() {
-        return userAccount;
+    private String userName;
+
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUserAccount(final Double userAccount) {
-        this.userAccount = userAccount;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
-
 }

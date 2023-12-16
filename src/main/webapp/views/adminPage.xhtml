@@ -28,7 +28,7 @@
 
                     <p:menuitem value="Strona główna" outcome="mainPage" ajax="false" async="false" />
 
-                    <p:menuitem value="Użytkownicy" outcome="usersList" ajax="false" async="false" />
+                    <p:menuitem value="Użytkownicy" outcome="users" ajax="false" async="false" />
 
                     <p:menuitem value="Przedmioty" outcome="itemsList" ajax="false" async="false" />
 
@@ -45,21 +45,21 @@
         <p>Tutaj można otworzyć widok strony głównej</p>
         <fieldset>
             <h:form>
-                <h:commandButton id="mainPage" value="Przejdź do strony głównej" action="mainPage"/>
+                <p:button id="mainPage" value="Przejdź do strony głównej" outcome="mainPage"/>
             </h:form>
         </fieldset>
 
         <p>Tutaj można wejść na opcje dostępne dla przedmiotów</p>
         <fieldset>
             <h:form>
-                <h:commandButton id="items" value="Zarzdzaj przedmiotami" action="itemManagement"/>
+                <p:button id="items" value="Zarzdzaj przedmiotami" outcome="itemsList"/>
             </h:form>
         </fieldset>
 
         <p>Tutaj można wejść na opcje dostępne dla listy użytkoników</p>
         <fieldset>
             <h:form>
-                <h:commandButton id="users" value="Zarzadzaj listą użytkowników" action="users"/>
+                <p:button id="users" value="Zarzadzaj listą użytkowników" outcome="users"/>
             </h:form>
         </fieldset>
     </div>
