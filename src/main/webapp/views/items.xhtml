@@ -10,37 +10,17 @@
 <h:body>
 
     <h1>Jesteś na stronie przedmiotów!</h1>
-    <h2>Zarzadzaj listą przedmiortów</h2>
-
-    <h:form>
-        <h:panelGrid columns="3">
-            <p:outputLabel for="auctionDateBefore" value="Data zakończenia aukcji do:"/>
-            <p:calendar id="auctionDateBefore" value="#{itemSearchForm.auctionDateBefore}"
-                        pattern="dd-MM-yyyy" navigator="true"
-                        converterMessage="Please enter a valid date. For example 14-10-2025.">
-                <f:convertDateTime pattern="dd-MM-yyyy"/>
-                <p:ajax event="dateSelect" listener="#{itemDatabase.refresh}" update=":itemForm @form"/>
-            </p:calendar>
-            <p:message for="auctionDateBefore"/>
-            <p:button value="Wyszukaj" outcome="itemsList"/>
-        </h:panelGrid>
-    </h:form>
+    <h2>Zobacz dostępne przedmioty</h2>
 
     <p:growl id="growl" globalOnly="true"/>
     <div align="center">
         <h2><h:outputText value="Lista przedmiotów"/></h2>
         <h:form id="itemForm">
             <p:dataTable id="itemTable" value="#{itemDatabase.values}" var="itm" class="itemsTable" rows="5" paginator="true">
-                <p:column sortBy="#{itm.id}" name="header" id="idColumn">
-                    <f:facet name="header">ID</f:facet>
-                    <h:link value="#{itm.id}" outcome="editItem">
-                        <f:param name="itemId" value="#{itm.id}"/>
-                    </h:link>
-                </p:column>
                 <p:column sortBy="#{itm.name}" name="header" id="nameColumn">
                     <f:facet name="header">NAZWA</f:facet>
                     <h:link value="#{itm.name}" outcome="itemPage">
-                        <f:param name="itemName" value="#{itm.name}"/>
+                        <f:param name="userId" value="#{itm.name}"/>
                     </h:link>
                 </p:column>
                 <p:column sortBy="#{itm.category}" name="header" id="categoryColumn">
@@ -63,12 +43,7 @@
                     <f:facet name="header">OPIS</f:facet>
                     #{itm.description}
                 </p:column>
-                <p:column name="delete" id="deleteButton">
-                    <p:commandButton action="#{itemController.remove(itm)}" icon="ui-icon-trash" class="btn btn-danger" update="@form growl"/>
-                </p:column>
             </p:dataTable>
-
-            <p:commandButton action="createItem.xhtml?faces-redirect=true" value="Dodaj przedmiot" class="btn btn-success btnSpace" />
 
         </h:form>
 

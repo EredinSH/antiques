@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <meta content="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <h:outputStylesheet library="" name="css/gallery.css"/>
+    <h:outputScript library="" name="js/gallery.js" />
+    <title>Galeria</title>
+</h:head>
+<h:body styleClass="body">
+
+    <h:form>
+        <p:button id="mainPage" value="Wróć do strony głównej" outcome="mainPage"/>
+    </h:form>
+    <div class="heading">
+        <h1>Galeria zdjęć</h1>
+    </div>
+    <div class="gallery">
+        <div class="container">
+            <img src="../resources/images/fotele.jpg"
+                 alt="Image 10" class="gallery-img" onclick="showImage(src)"/>
+            <div class="overlay">Dwa fotele w stylu Ludwika XVI</div>
+        </div>
+        <div class="container">
+            <img src="../resources/images/garderoba.jpg"
+                 alt="Image 10" class="gallery-img" onclick="showImage(src)"/>
+            <div class="overlay">Secesyjna garderoba z początku XX wieku</div>
+        </div>
+        <div class="container">
+            <img src="../resources/images/gobelin.jpg"
+                 alt="Image 10" class="gallery-img" onclick="showImage(src)"/>
+            <div class="overlay">Duży gobelin</div>
+        </div>
+        <div class="container">
+            <img src="../resources/images/jacht.jpg"
+                 alt="Image 10" class="gallery-img" onclick="showImage(src)"/>
+            <div class="overlay">Przedwojenny model jachtu</div>
+        </div>
+        <div class="container">
+            <img src="../resources/images/karafka.jpg"
+                 alt="Image 10" class="gallery-img" onclick="showImage(src)"/>
+            <div class="overlay">6 szklanek do whisky 0,33 l + karafka</div>
+        </div>
+        <div class="container">
+            <img src="../resources/images/komplet.jpg"
+                 alt="Image 10" class="gallery-img" onclick="showImage(src)"/>
+            <div class="overlay">Neorokokowy komplet salonowy</div>
+        </div>
+        <div class="container">
+            <img src="../resources/images/lustro.jpg"
+                 alt="Image 10" class="gallery-img" onclick="showImage(src)"/>
+            <div class="overlay">XX-wieczne lustro w ciemnej ramie</div>
+        </div>
+        <div class="container">
+            <img src="../resources/images/obrazGor.jpg"
+                 alt="Image 10" class="gallery-img" onclick="showImage(src)"/>
+            <div class="overlay">Obraz z pejzażem górskim</div>
+        </div>
+        <div class="container">
+            <img src="../resources/images/obrazLat.jpg"
+                 alt="Image 10" class="gallery-img" onclick="showImage(src)"/>
+            <div class="overlay">Obraz olejny na półtnie H. Veeninga</div>
+        </div>
+        <div class="container">
+            <img src="../resources/images/obrazZim.jpg"
+                 alt="Image 10" class="gallery-img" onclick="showImage(src)"/>
+            <div class="overlay">Obraz olejny wiejski pejzaż zimą</div>
+        </div>
+        <div class="container">
+            <img src="../resources/images/stolik.jpg"
+                 alt="Image 10" class="gallery-img" onclick="showImage(src)"/>
+            <div class="overlay">Wiktoriański stolik</div>
+        </div>
+        <div class="container">
+            <img src="../resources/images/talerzDes.jpg"
+                 alt="Image 10" class="gallery-img" onclick="showImage(src)"/>
+            <div class="overlay">Ceramiczny talerzyk deserowy</div>
+        </div>
+        <div class="container">
+            <img src="../resources/images/talerzKr.jpg"
+                 alt="Image 10" class="gallery-img" onclick="showImage(src)"/>
+            <div class="overlay">Talerz kryształowy na ciasto Huta Julia</div>
+        </div>
+        <div class="container">
+            <img src="../resources/images/zegar.jpg"
+                 alt="Image 10" class="gallery-img" onclick="showImage(src)"/>
+            <div class="overlay">Inkrustowany zegar kominkowy</div>
+        </div>
+        <div class="container">
+            <img src="../resources/images/zegarSzk.jpg"
+                 alt="Image 10" class="gallery-img" onclick="showImage(src)"/>
+            <div class="overlay">Zegar kominkowy ze szklanym kloszem</div>
+        </div>
+
+    </div>
+
+    <div class="image-popup-container" id="imagePopup">
+        <span class="close-button" onclick="closeImage()">×</span>
+        <img src="" alt="Popup Image" id="popupImage"/>
+    </div>
+
+
+
+</h:body>
+</html>

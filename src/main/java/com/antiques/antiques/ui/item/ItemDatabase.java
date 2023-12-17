@@ -38,13 +38,7 @@ public class ItemDatabase implements Serializable {
         }
     }
 
-    public void preRenderViewEvent() {
-        if (itemForm.getItem() == null) {
-            initializeItem();
-        }
-    }
-
-    public void initializeItem() {
-        itemBean.find(itemForm.getItemId());
+    public Item preRenderViewEvent() {
+        return itemForm.getItem();
     }
 }

@@ -1,14 +1,11 @@
 .body {
-    background-image: url("../../resources/images/carpet-left.jpg"), url("../../resources/images/carpet-right.jpg");
-    background-position: right top, left top;
-    background-repeat: no-repeat, no-repeat;
-    background-color: antiquewhite;
+    background-image: url("../../resources/images/carpet.jpg");
     height: 100%;
-    background-attachment: fixed;
+    width: 100%;
 }
 
-html {
-    height: 100%;
+.bodyDiv {
+    background-color: tan;
 }
 
 .calendar {

@@ -10,12 +10,12 @@
 <h:body>
 
     <f:metadata>
-        <f:viewParam name="id" value="#{itemForm.itemId}"/>
+        <f:viewParam name="name" value="#{itemForm.item.name}"/>
         <f:event type="preRenderView" listener="#{itemDatabase.preRenderViewEvent}"/>
     </f:metadata>
 
     <h:form id="itemForm">
-        <p:dataTable id="itemTable" value="#{itemController.getItemById(itemForm.itemId)}" var="itm" class="itemsTable">
+        <p:dataTable id="itemTable" value="#{itemDatabase.values.contains(itemForm.item.name)}" var="itm" class="itemsTable">
             <p:column sortBy="#{itm.name}" name="header" id="nameColumn">
                 <f:facet name="header">NAZWA</f:facet>
                 <h:link value="#{itm.name}" outcome="itemPage">
