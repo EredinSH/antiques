@@ -4,6 +4,7 @@
     background-repeat: no-repeat, no-repeat;
     background-color: antiquewhite;
     height: 100%;
+    background-attachment: fixed;
 }
 
 html {
@@ -13,4 +14,28 @@ html {
 .calendar {
     top: 95%;
     right: 80%;
+}
+
+.text {
+    text-align: center;
+    font-size: 16px;
+    font-family: Garamond, serif;
+    color: black;
+    background-color: tan;
+    width: 25%;
+    height: 25%;
+    overflow: auto;
+}
+
+.sidebar {
+    font-family: Garamond, serif;
+    color: black;
+    background: rgb(215, 133, 72);
+}
+
+.title {
+    font-size: 20px;
+    font-family: 'Open Sans',sans-serif;
+    color: #c57c3f;
+    text-shadow: 2px 2px 4px #000000;
 }

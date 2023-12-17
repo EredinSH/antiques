@@ -2,17 +2,21 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
     <title>Edytuj przedmiot</title>
 </h:head>
 <h:body>
+
+    <f:metadata>
+        <f:viewParam name="itmId" value="#{itemForm.itemId}"/>
+        <f:event type="preRenderView" listener="#{editItemController.preRenderViewEvent}"/>
+    </f:metadata>
+
     <h:form id="itemForm">
         <h:panelGrid columns="3">
-            <p:outputLabel for="itemId" value="ID"/>
-            <p:inputText id="itemId" value="#{itemForm.item.id}" readonly="true"/>
-            <p:message for="itemId"/>
 
             <p:outputLabel for="itemName" value="NAZWA"/>
             <p:inputText id="itemName" value="#{itemForm.item.name}"/>

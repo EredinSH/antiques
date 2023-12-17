@@ -8,11 +8,13 @@ import java.sql.Date;
 @SessionScoped
 @Named
 public class ItemSearchForm implements Serializable {
-    private Date auctionEndDateExist;
-    public Date getAuctionEndDateExist() {
-        return auctionEndDateExist;
+    private Date auctionDateBefore;
+
+    public Date getAuctionDateBefore() {
+        return auctionDateBefore;
     }
-    public void setAuctionEndDateExist(final Date auctionEndDateExist) {
-        this.auctionEndDateExist = auctionEndDateExist;
+
+    public void setAuctionDateBefore(Date auctionDateBefore) {
+        this.auctionDateBefore = auctionDateBefore;
     }
 }

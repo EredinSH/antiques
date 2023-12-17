@@ -9,60 +9,97 @@
     <meta content="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <h:outputStylesheet library="" name="css/adminPage.css"/>
-    <h:outputScript library="" name="js/adminPage.js" />
     <title>Admin Page</title>
+    <h1>Witam kierownika!</h1><h2>Prosze zarzadzac strona.</h2>
 </h:head>
 <h:body styleClass="body">
 
-    <div id="calender" class="calender">
-        <p:calendar pattern="MM/dd/yyyy" navigator="true">
-        </p:calendar>
-    </div>
+    <p:panelGrid columns="2" columnClasses="ui-grid-col-2,ui-grid-col-10" layout="grid">
 
-    <div class="sidebar">
+        <div class="sidebar">
 
-        <h:form>
-            <p:menu>
-
-                <p:submenu label="Pages">
-
-                    <p:menuitem value="Strona główna" outcome="mainPage" ajax="false" async="false" />
-
-                    <p:menuitem value="Użytkownicy" outcome="users" ajax="false" async="false" />
-
-                    <p:menuitem value="Przedmioty" outcome="itemsList" ajax="false" async="false" />
-
-                </p:submenu>
-
-            </p:menu>
-        </h:form>
-
-    </div>
-
-    <div align="center" class="mainBody">
-
-        <h1>Witam kierownika!</h1><h2>Prosze zarzadzac strona.</h2>
-        <p>Tutaj można otworzyć widok strony głównej</p>
-        <fieldset>
             <h:form>
-                <p:button id="mainPage" value="Przejdź do strony głównej" outcome="mainPage"/>
-            </h:form>
-        </fieldset>
+                <p:calendar class="calendar" mode="inline" showWeek="true" />
+                <p:menu>
 
-        <p>Tutaj można wejść na opcje dostępne dla przedmiotów</p>
-        <fieldset>
-            <h:form>
-                <p:button id="items" value="Zarzdzaj przedmiotami" outcome="itemsList"/>
-            </h:form>
-        </fieldset>
+                    <p:submenu label="Strony">
 
-        <p>Tutaj można wejść na opcje dostępne dla listy użytkoników</p>
-        <fieldset>
-            <h:form>
-                <p:button id="users" value="Zarzadzaj listą użytkowników" outcome="users"/>
+                        <p:menuitem value="Strona główna" outcome="mainPage" ajax="false" async="false" />
+
+                        <p:menuitem value="Użytkownicy" outcome="users" ajax="false" async="false" />
+
+                        <p:menuitem value="Przedmioty" outcome="itemsList" ajax="false" async="false" />
+
+                    </p:submenu>
+
+                </p:menu>
             </h:form>
-        </fieldset>
-    </div>
+
+        </div>
+
+        <h:panelGroup>
+
+
+            <div align="center" class="mainBody">
+
+                <p class="title">Tutaj można otworzyć widok strony głównej</p>
+                <fieldset>
+                    <div class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique, nisl at vestibulum venenatis, ipsum nunc cursus ipsum, a condimentum nibh dolor vitae metus. Nullam lectus diam, iaculis ac lorem nec, iaculis volutpat felis. Proin a varius felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie, ex non lacinia commodo, justo justo eleifend mi, consequat convallis leo mauris ut quam. Suspendisse id mauris at diam gravida mattis. Aenean elit velit, pharetra pulvinar molestie vel, dignissim vel eros. Vestibulum ac tempus nibh. Praesent imperdiet, libero id sagittis egestas, tortor nunc venenatis lacus, vel dictum sapien lectus non orci. Pellentesque ut nibh nisi. Donec dapibus erat nisi, id mollis risus efficitur quis. Fusce pellentesque venenatis quam vel consectetur.
+
+                        Aenean tincidunt nisl eu nunc tincidunt, ut pulvinar eros imperdiet. Mauris nec dolor eu ligula efficitur vestibulum aliquet a velit. Curabitur auctor egestas neque at pellentesque. Curabitur et erat nulla. Duis magna neque, pretium et venenatis ut, auctor sit amet lectus. Etiam lobortis non erat ut venenatis. Integer tempor ultricies mauris vestibulum porta.
+
+                        Pellentesque fringilla vitae sem ac interdum. Aenean bibendum vulputate velit, eu imperdiet lacus hendrerit et. In et commodo lorem. Mauris lacinia volutpat mi ut ultricies. Proin maximus aliquet justo, vel convallis elit lacinia vel. Sed malesuada consectetur libero sed tincidunt. Nullam ultrices orci dapibus purus varius, a congue nunc faucibus. Nulla vel leo eleifend, posuere leo vitae, posuere lorem. Maecenas interdum ut erat sed consectetur. Donec ornare facilisis nisl. Suspendisse sed gravida mi, a facilisis nibh. Aenean imperdiet metus non felis egestas cursus. Fusce hendrerit congue ligula convallis sodales.
+
+                        Mauris non odio et eros pretium accumsan ac in purus. Morbi a tellus fermentum, euismod mauris in, sagittis leo. Donec pellentesque diam sit amet ultricies rutrum. Cras porta est neque, non tempor est convallis vitae. Cras ut massa dictum, dignissim dui quis, eleifend lacus. Nullam fermentum auctor ipsum in rhoncus. Sed mattis malesuada diam sed posuere. Morbi non rutrum augue. Sed nisi mi, congue ac dolor ac, aliquet tincidunt ipsum. In a augue vulputate, elementum mauris ac, condimentum turpis. Nullam commodo, enim non venenatis sodales, orci tortor vulputate arcu, vel viverra eros risus vitae purus. In eu placerat odio, sed aliquam enim. Praesent nec nisi sit amet enim varius egestas eget sed elit.
+
+                        Maecenas pulvinar, sapien at ullamcorper porta, risus erat condimentum enim, sed tincidunt tellus nisi feugiat nunc. Aenean ultrices neque in molestie tristique. Vivamus posuere, nulla in semper congue, enim nisl congue ligula, vitae laoreet leo leo et ex. Donec convallis eget risus ac semper. Vivamus pharetra vulputate commodo. Quisque hendrerit malesuada augue vitae commodo. Vestibulum venenatis orci vitae ante luctus, id facilisis mauris tempus. Mauris pretium leo id purus gravida, nec rhoncus velit efficitur. Cras sem ipsum, mollis nec neque vitae, sollicitudin accumsan ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed pretium lorem at dui scelerisque, sit amet consequat nulla posuere. Donec semper, massa a ornare vestibulum, ligula nulla dapibus magna, et accumsan lorem arcu sit amet nunc. Sed venenatis ut orci eget vestibulum. Donec tortor leo, laoreet eget ornare ac, bibendum ut sapien.
+                    </div>
+                    <h:form>
+                        <p:button id="mainPage" value="Przejdź do strony głównej" outcome="mainPage"/>
+                    </h:form>
+                </fieldset>
+
+                <p class="title">Tutaj można wejść na opcje dostępne dla przedmiotów</p>
+                <fieldset>
+                    <div class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique, nisl at vestibulum venenatis, ipsum nunc cursus ipsum, a condimentum nibh dolor vitae metus. Nullam lectus diam, iaculis ac lorem nec, iaculis volutpat felis. Proin a varius felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie, ex non lacinia commodo, justo justo eleifend mi, consequat convallis leo mauris ut quam. Suspendisse id mauris at diam gravida mattis. Aenean elit velit, pharetra pulvinar molestie vel, dignissim vel eros. Vestibulum ac tempus nibh. Praesent imperdiet, libero id sagittis egestas, tortor nunc venenatis lacus, vel dictum sapien lectus non orci. Pellentesque ut nibh nisi. Donec dapibus erat nisi, id mollis risus efficitur quis. Fusce pellentesque venenatis quam vel consectetur.
+
+                        Aenean tincidunt nisl eu nunc tincidunt, ut pulvinar eros imperdiet. Mauris nec dolor eu ligula efficitur vestibulum aliquet a velit. Curabitur auctor egestas neque at pellentesque. Curabitur et erat nulla. Duis magna neque, pretium et venenatis ut, auctor sit amet lectus. Etiam lobortis non erat ut venenatis. Integer tempor ultricies mauris vestibulum porta.
+
+                        Pellentesque fringilla vitae sem ac interdum. Aenean bibendum vulputate velit, eu imperdiet lacus hendrerit et. In et commodo lorem. Mauris lacinia volutpat mi ut ultricies. Proin maximus aliquet justo, vel convallis elit lacinia vel. Sed malesuada consectetur libero sed tincidunt. Nullam ultrices orci dapibus purus varius, a congue nunc faucibus. Nulla vel leo eleifend, posuere leo vitae, posuere lorem. Maecenas interdum ut erat sed consectetur. Donec ornare facilisis nisl. Suspendisse sed gravida mi, a facilisis nibh. Aenean imperdiet metus non felis egestas cursus. Fusce hendrerit congue ligula convallis sodales.
+
+                        Mauris non odio et eros pretium accumsan ac in purus. Morbi a tellus fermentum, euismod mauris in, sagittis leo. Donec pellentesque diam sit amet ultricies rutrum. Cras porta est neque, non tempor est convallis vitae. Cras ut massa dictum, dignissim dui quis, eleifend lacus. Nullam fermentum auctor ipsum in rhoncus. Sed mattis malesuada diam sed posuere. Morbi non rutrum augue. Sed nisi mi, congue ac dolor ac, aliquet tincidunt ipsum. In a augue vulputate, elementum mauris ac, condimentum turpis. Nullam commodo, enim non venenatis sodales, orci tortor vulputate arcu, vel viverra eros risus vitae purus. In eu placerat odio, sed aliquam enim. Praesent nec nisi sit amet enim varius egestas eget sed elit.
+
+                        Maecenas pulvinar, sapien at ullamcorper porta, risus erat condimentum enim, sed tincidunt tellus nisi feugiat nunc. Aenean ultrices neque in molestie tristique. Vivamus posuere, nulla in semper congue, enim nisl congue ligula, vitae laoreet leo leo et ex. Donec convallis eget risus ac semper. Vivamus pharetra vulputate commodo. Quisque hendrerit malesuada augue vitae commodo. Vestibulum venenatis orci vitae ante luctus, id facilisis mauris tempus. Mauris pretium leo id purus gravida, nec rhoncus velit efficitur. Cras sem ipsum, mollis nec neque vitae, sollicitudin accumsan ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed pretium lorem at dui scelerisque, sit amet consequat nulla posuere. Donec semper, massa a ornare vestibulum, ligula nulla dapibus magna, et accumsan lorem arcu sit amet nunc. Sed venenatis ut orci eget vestibulum. Donec tortor leo, laoreet eget ornare ac, bibendum ut sapien.
+                    </div>
+                    <h:form>
+                        <p:button id="items" value="Zarzdzaj przedmiotami" outcome="itemsList"/>
+                    </h:form>
+                </fieldset>
+
+                <p class="title">Tutaj można wejść na opcje dostępne dla listy użytkoników</p>
+                <fieldset>
+                    <div class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique, nisl at vestibulum venenatis, ipsum nunc cursus ipsum, a condimentum nibh dolor vitae metus. Nullam lectus diam, iaculis ac lorem nec, iaculis volutpat felis. Proin a varius felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie, ex non lacinia commodo, justo justo eleifend mi, consequat convallis leo mauris ut quam. Suspendisse id mauris at diam gravida mattis. Aenean elit velit, pharetra pulvinar molestie vel, dignissim vel eros. Vestibulum ac tempus nibh. Praesent imperdiet, libero id sagittis egestas, tortor nunc venenatis lacus, vel dictum sapien lectus non orci. Pellentesque ut nibh nisi. Donec dapibus erat nisi, id mollis risus efficitur quis. Fusce pellentesque venenatis quam vel consectetur.
+
+                        Aenean tincidunt nisl eu nunc tincidunt, ut pulvinar eros imperdiet. Mauris nec dolor eu ligula efficitur vestibulum aliquet a velit. Curabitur auctor egestas neque at pellentesque. Curabitur et erat nulla. Duis magna neque, pretium et venenatis ut, auctor sit amet lectus. Etiam lobortis non erat ut venenatis. Integer tempor ultricies mauris vestibulum porta.
+
+                        Pellentesque fringilla vitae sem ac interdum. Aenean bibendum vulputate velit, eu imperdiet lacus hendrerit et. In et commodo lorem. Mauris lacinia volutpat mi ut ultricies. Proin maximus aliquet justo, vel convallis elit lacinia vel. Sed malesuada consectetur libero sed tincidunt. Nullam ultrices orci dapibus purus varius, a congue nunc faucibus. Nulla vel leo eleifend, posuere leo vitae, posuere lorem. Maecenas interdum ut erat sed consectetur. Donec ornare facilisis nisl. Suspendisse sed gravida mi, a facilisis nibh. Aenean imperdiet metus non felis egestas cursus. Fusce hendrerit congue ligula convallis sodales.
+
+                        Mauris non odio et eros pretium accumsan ac in purus. Morbi a tellus fermentum, euismod mauris in, sagittis leo. Donec pellentesque diam sit amet ultricies rutrum. Cras porta est neque, non tempor est convallis vitae. Cras ut massa dictum, dignissim dui quis, eleifend lacus. Nullam fermentum auctor ipsum in rhoncus. Sed mattis malesuada diam sed posuere. Morbi non rutrum augue. Sed nisi mi, congue ac dolor ac, aliquet tincidunt ipsum. In a augue vulputate, elementum mauris ac, condimentum turpis. Nullam commodo, enim non venenatis sodales, orci tortor vulputate arcu, vel viverra eros risus vitae purus. In eu placerat odio, sed aliquam enim. Praesent nec nisi sit amet enim varius egestas eget sed elit.
+
+                        Maecenas pulvinar, sapien at ullamcorper porta, risus erat condimentum enim, sed tincidunt tellus nisi feugiat nunc. Aenean ultrices neque in molestie tristique. Vivamus posuere, nulla in semper congue, enim nisl congue ligula, vitae laoreet leo leo et ex. Donec convallis eget risus ac semper. Vivamus pharetra vulputate commodo. Quisque hendrerit malesuada augue vitae commodo. Vestibulum venenatis orci vitae ante luctus, id facilisis mauris tempus. Mauris pretium leo id purus gravida, nec rhoncus velit efficitur. Cras sem ipsum, mollis nec neque vitae, sollicitudin accumsan ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed pretium lorem at dui scelerisque, sit amet consequat nulla posuere. Donec semper, massa a ornare vestibulum, ligula nulla dapibus magna, et accumsan lorem arcu sit amet nunc. Sed venenatis ut orci eget vestibulum. Donec tortor leo, laoreet eget ornare ac, bibendum ut sapien.
+                    </div>
+                    <h:form>
+                        <p:button id="users" value="Zarzadzaj listą użytkowników" outcome="users"/>
+                    </h:form>
+                </fieldset>
+            </div>
+
+
+        </h:panelGroup>
+    </p:panelGrid>
 
 </h:body>
 </html>

@@ -12,12 +12,19 @@
     <h1>Jesteś na stronie przedmiotów!</h1>
     <h2>Zarzadzaj listą przedmiortów</h2>
 
-    <div class="searchTagResult">
-        Wyszukaj kategorię:
-        <h:inputText value="#{userSearchForm.userName}" required="true">
-            <f:ajax event="valueChange" listener="#{userDatabase.refresh}" update=":userForm @form"/>
-        </h:inputText>
-    </div>
+    <h:form>
+        <h:panelGrid columns="3">
+            <p:outputLabel for="auctionDateBefore" value="Data zakończenia aukcji do:"/>
+            <p:calendar id="auctionDateBefore" value="#{itemSearchForm.auctionDateBefore}"
+                        pattern="dd-MM-yyyy" navigator="true"
+                        converterMessage="Please enter a valid date. For example 14-10-2025.">
+                <f:convertDateTime pattern="dd-MM-yyyy"/>
+                <p:ajax event="dateSelect" listener="#{itemDatabase.refresh}" update=":itemForm @form"/>
+            </p:calendar>
+            <p:message for="auctionDateBefore"/>
+            <p:button value="Wyszukaj" outcome="itemsList"/>
+        </h:panelGrid>
+    </h:form>
 
     <p:growl id="growl" globalOnly="true"/>
     <div align="center">

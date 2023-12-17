@@ -24,9 +24,9 @@ public class ItemBean {
         return query.getResultList();
     }
 
-    public List<Item> getAuctionEndDateExist(Date auctionEndDateExist) {
-        TypedQuery<Item> query = em.createQuery("SELECT i FROM Item i WHERE i.auctionEndDate >= :auctionEndDateExist", Item.class);
-        query.setParameter("auctionEndDateExist", auctionEndDateExist);
+    public List<Item> getAuctionEndDateBefore(Date auctionDateBefore) {
+        TypedQuery<Item> query = em.createQuery("SELECT i FROM Item i WHERE i.auctionEndDate <= :auctionDateBefore", Item.class);
+        query.setParameter("auctionDateBefore", auctionDateBefore);
         return query.getResultList();
     }
 

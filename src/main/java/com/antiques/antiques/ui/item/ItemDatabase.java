@@ -16,22 +16,35 @@ public class ItemDatabase implements Serializable {
     ItemBean itemBean;
 
     @Inject
+    ItemForm itemForm;
+
+    @Inject
     ItemSearchForm itemSearchForm;
 
     private List<Item> values;
 
     public List<Item> getValues() {
-        if(values==null) {
+        if (values == null) {
             refresh();
         }
         return values;
     }
 
     public void refresh() {
-        if(itemSearchForm.getAuctionEndDateExist() == null) {
+        if (itemSearchForm.getAuctionDateBefore() == null) {
             values = itemBean.getAllItems();
         } else {
-            values = itemBean.getAuctionEndDateExist(itemSearchForm.getAuctionEndDateExist());
+            values = itemBean.getAuctionEndDateBefore(itemSearchForm.getAuctionDateBefore());
         }
+    }
+
+    public void preRenderViewEvent() {
+        if (itemForm.getItem() == null) {
+            initializeItem();
+        }
+    }
+
+    public void initializeItem() {
+        itemBean.find(itemForm.getItemId());
     }
 }
