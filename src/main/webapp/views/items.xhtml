@@ -8,7 +8,7 @@
 <h:head>
     <meta content="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <h:outputStylesheet library="" name="css/items.css"/>
+    <h:outputStylesheet library="css" name="items.css"/>
     <title>Przedmioty</title>
 </h:head>
 <h:body styleClass="body">
@@ -50,8 +50,7 @@
                 </p:column>
                 <p:column name="header" id="auctionPrice">
                     <p:outputLabel for="itemPrice" value="Podaj cene zakupu:"/>
-                    <p:inputText id="itemPrice" value="#{itemForm.item.price}" converterMessage="Pole oferta musi być liczbą" validator="#{itemPriceBean.validatePrice}"/>
-                    <p:message for="itemPrice"/>
+                    <p:inputText id="itemPrice" value="#{itemPriceBean.newPrice}" required="true" requiredMessage="Pole oferta musi być liczbą" validator="#{itemPriceBean.validatePrice}"/>
                     <p:commandButton value="Wyślij" action="#{itemPriceBean.doValidate}"/>
                 </p:column>
             </p:dataTable>

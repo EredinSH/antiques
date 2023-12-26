@@ -8,7 +8,7 @@
 <h:head>
     <meta content="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <h:outputStylesheet library="" name="css/itemsList.css"/>
+    <h:outputStylesheet library="css" name="itemsList.css"/>
     <title>Przedmioty</title>
 </h:head>
 <h:body styleClass="body">
@@ -23,7 +23,7 @@
     <div align="center">
         <h2><h:outputText value="Lista przedmiotów"/></h2>
         <h:form id="itemForm">
-            <p:dataTable id="itemTable" value="#{itemDatabase.values}" var="itm" class="itemsTable" rows="5" paginator="true">
+            <p:dataTable id="itemTable" value="#{itemDatabase.values}" var="itm" class="itemsTable" rows="3" paginator="true">
                 <p:column sortBy="#{itm.id}" name="header" id="idColumn">
                     <f:facet name="header">ID</f:facet>
                     <h:link value="#{itm.id}" outcome="editItem">

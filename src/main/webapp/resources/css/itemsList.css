@@ -1,5 +1,6 @@
 .body {
-    background-image: url("../../resources/images/carpet.jpg");
+    background-image: url('../images/carpetGob.jpg');
     height: 100%;
     width: 100%;
+    background-size: 100% 100%;
 }

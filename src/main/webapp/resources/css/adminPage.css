@@ -1,7 +1,8 @@
-.body {
-    background-image: url("../../resources/images/carpet.jpg");
+.bodyStyle {
+    background-image: url("/resources/images/carpetGob.jpg");
     height: 100%;
     width: 100%;
+    background-size: 100% 100%;
 }
 
 .divForm {
@@ -13,14 +14,25 @@
     right: 80%;
 }
 
+fieldset.text1 {
+    background-color: #e3d1b9;
+}
+
+fieldset.text2 {
+    background-color: #e3d1b9;
+}
+
+fieldset.text3 {
+    background-color: #e3d1b9;
+}
+
 div.text1 {
     text-align: center;
     font-size: 16px;
     font-family: 'Aboreto', sans-serif;
     color: black;
-    background-color: #e3d1b9;
-    width: 80%;
-    height: 100px;
+    width: 90%;
+    height: 200px;
     overflow: scroll;
 }
 
@@ -29,8 +41,8 @@ div.text2 {
     font-size: 16px;
     font-family: 'Aboreto', sans-serif;
     color: black;
-    background-color: #e3d1b9;
-    width: 80%;
+    width: 90%;
+    height: 200px;
     overflow: scroll;
 }
 
@@ -39,10 +51,9 @@ div.text3 {
     font-size: 16px;
     font-family: 'Aboreto', sans-serif;
     color: black;
-    background-color: #e3d1b9;
-    width: 80%;
-    overflow: scroll;text-transform: uppercase;
-
+    width: 90%;
+    height: 200px;
+    overflow: scroll;
 }
 
 .sidebar {
@@ -51,12 +62,17 @@ div.text3 {
 }
 
 .title {
-    font-size: 25px;
+    font-size: 26px;
     font-family: 'Aboreto', sans-serif;
-    color: #e5610c;
+    color: #d7621b;
     text-shadow: 2px 2px 4px #000000;
+    background-color: #f6d3a5;
 }
 
-.panelGrid {
-    background-color: #e3d1b9;
+.mainBody {
+    background-color: #f6d3a5;
+}
+
+body {
+
 }
