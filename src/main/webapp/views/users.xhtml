@@ -5,9 +5,13 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core">
 
-<h:head><title>Użytkownicy</title>
+<h:head>
+    <meta content="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <h:outputStylesheet library="" name="css/users.css"/>
+    <title>Użytkownicy</title>
 </h:head>
-<h:body>
+<h:body styleClass="body">
 
     <h1>Jesteś na stronie użytkowników!</h1>
     <h2>Zarzadzaj listą użytkowników</h2>
@@ -55,7 +59,9 @@
                 </p:column>
             </p:dataTable>
 
-            <p:commandButton outcome="createUser" value="Dodaj użytkownika" />
+            <h:form>
+                <p:button id="createUser" value="Dodaj użytkownika" outcome="createUser"/>
+            </h:form>
 
         </h:form>
 
