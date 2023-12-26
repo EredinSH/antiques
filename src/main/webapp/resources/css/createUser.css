@@ -3,3 +3,12 @@
     height: 100%;
     width: 100%;
 }
+
+.createUserForm {
+    position: absolute;
+    background-color: #726d6d;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
+}
