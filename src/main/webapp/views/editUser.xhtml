@@ -15,9 +15,6 @@
         <div class="editUserForm">
             <h:form id="userForm" styleClass="editUserForm">
                 <h:panelGrid columns="3">
-                    <p:outputLabel for="userId" value="ID"/>
-                    <p:inputText id="userId" value="#{userForm.user.id}" readonly="true"/>
-                    <p:message for="userId"/>
 
                     <p:outputLabel for="userName" value="IMIĘ"/>
                     <p:inputText id="userName" value="#{userForm.user.name}"/>
@@ -42,7 +39,6 @@
                     <p:outputLabel for="userAccount" value="STAN KONTA"/>
                     <p:inputText id="userAccount" value="#{userForm.user.account}"/>
                     <p:message for="userAccount"/>
-
 
                     <p:commandButton action="#{editUserController.save}" value="Zapisz"/>
                     <p:button outcome="users" value="Wyjdź"/>
