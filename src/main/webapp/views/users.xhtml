@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//PL"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
@@ -11,13 +11,9 @@
 
     <h1>Jesteś na stronie użytkowników!</h1>
     <h2>Zarzadzaj listą użytkowników</h2>
-
-    <div class="searchTagResult">
-        Wyszukaj użytkownika:
-            <h:inputText value="#{userSearchForm.userName}" required="true">
-                <f:ajax event="valueChange" listener="#{userDatabase.refresh}" update=":userForm @form"/>
-            </h:inputText>
-    </div>
+    <h:form>
+        <p:button id="mainPage" value="Przejdź do strony głównej" outcome="mainPage"/>
+    </h:form>
 
     <p:growl id="growl" globalOnly="true"/>
     <div align="center">
@@ -55,11 +51,11 @@
                     #{usr.account}
                 </p:column>
                 <p:column name="delete" id="deleteButton">
-                    <p:commandButton action="#{userController.remove(usr)}" icon="ui-icon-trash" class="btn btn-danger" update="@form growl"/>
+                    <p:commandButton action="#{userController.remove(usr)}" icon="ui-icon-trash" update="@form growl"/>
                 </p:column>
             </p:dataTable>
 
-            <p:commandButton action="createUser.xhtml?faces-redirect=true" value="Dodaj użytkownika" class="btn btn-success btnSpace" />
+            <p:commandButton outcome="createUser" value="Dodaj użytkownika" />
 
         </h:form>
 

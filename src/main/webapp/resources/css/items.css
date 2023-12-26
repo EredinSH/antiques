@@ -1,0 +1,37 @@
+.body {
+    background-image: url("../../resources/images/carpet.jpg");
+    height: 100%;
+    width: 100%;
+}
+
+.itemForm {
+    font-family: 'Aboreto', sans-serif;
+}
+
+.textH1 {
+    color: rgb(255, 255, 255);
+    left: 18rem;
+    top: 2rem;
+    background-color: rgba(68, 67, 67, 0.8);
+    padding: 0 1rem;
+    font-family: 'Aboreto', sans-serif;
+}
+
+.textH2 {
+    color: rgb(255, 255, 255);
+    left: 18rem;
+    top: 2rem;
+    background-color: rgba(68, 67, 67, 0.8);
+    padding: 0 1rem;
+    font-family: 'Aboreto', sans-serif;
+}
+
+.listTitle {
+    position: absolute;
+    color: rgb(255, 255, 255);
+    left: 18rem;
+    top: 2rem;
+    background-color: rgba(68, 67, 67, 0.8);
+    padding: 0 1rem;
+    font-family: 'Aboreto', sans-serif;
+}

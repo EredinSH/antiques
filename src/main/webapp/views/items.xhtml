@@ -1,27 +1,32 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//PL"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core">
 
-<h:head><title>Przedmioty</title>
+<h:head>
+    <meta content="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <h:outputStylesheet library="" name="css/items.css"/>
+    <title>Przedmioty</title>
 </h:head>
-<h:body>
+<h:body styleClass="body">
 
-    <h1>Jesteś na stronie przedmiotów!</h1>
-    <h2>Zobacz dostępne przedmioty</h2>
+    <h1 class="textH1">Jesteś na stronie przedmiotów!</h1>
+    <h2 class="textH2">Zobacz dostępne przedmioty</h2>
+    <h:form>
+        <p:button id="mainPage" value="Przejdź do strony głównej" outcome="mainPage"/>
+    </h:form>
 
     <p:growl id="growl" globalOnly="true"/>
     <div align="center">
-        <h2><h:outputText value="Lista przedmiotów"/></h2>
-        <h:form id="itemForm">
+        <h2><h:outputText styleClass="listTitle" value="Lista przedmiotów"/></h2>
+        <h:form id="itemForm" styleClass="itemForm">
             <p:dataTable id="itemTable" value="#{itemDatabase.values}" var="itm" class="itemsTable" rows="5" paginator="true">
                 <p:column sortBy="#{itm.name}" name="header" id="nameColumn">
                     <f:facet name="header">NAZWA</f:facet>
-                    <h:link value="#{itm.name}" outcome="itemPage">
-                        <f:param name="userId" value="#{itm.name}"/>
-                    </h:link>
+                    #{itm.name}
                 </p:column>
                 <p:column sortBy="#{itm.category}" name="header" id="categoryColumn">
                     <f:facet name="header">KATEGORIA</f:facet>
@@ -42,6 +47,12 @@
                 <p:column sortBy="#{itm.description}" name="header" id="descriptionColumn">
                     <f:facet name="header">OPIS</f:facet>
                     #{itm.description}
+                </p:column>
+                <p:column name="header" id="auctionPrice">
+                    <p:outputLabel for="itemPrice" value="Podaj cene zakupu:"/>
+                    <p:inputText id="itemPrice" value="#{itemForm.item.price}" converterMessage="Pole oferta musi być liczbą" validator="#{itemPriceBean.validatePrice}"/>
+                    <p:message for="itemPrice"/>
+                    <p:commandButton value="Wyślij" action="#{itemPriceBean.doValidate}"/>
                 </p:column>
             </p:dataTable>
 

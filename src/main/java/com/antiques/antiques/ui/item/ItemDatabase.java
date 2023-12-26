@@ -18,9 +18,6 @@ public class ItemDatabase implements Serializable {
     @Inject
     ItemForm itemForm;
 
-    @Inject
-    ItemSearchForm itemSearchForm;
-
     private List<Item> values;
 
     public List<Item> getValues() {
@@ -31,11 +28,7 @@ public class ItemDatabase implements Serializable {
     }
 
     public void refresh() {
-        if (itemSearchForm.getAuctionDateBefore() == null) {
-            values = itemBean.getAllItems();
-        } else {
-            values = itemBean.getAuctionEndDateBefore(itemSearchForm.getAuctionDateBefore());
-        }
+        values = itemBean.getAllItems();
     }
 
     public Item preRenderViewEvent() {

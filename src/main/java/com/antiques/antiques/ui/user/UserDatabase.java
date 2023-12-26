@@ -16,9 +16,6 @@ public class UserDatabase implements Serializable {
     @Inject
     UserBean userBean;
 
-    @Inject
-    UserSearchForm userSearchForm;
-
     private List<User> values;
 
     public List<User> getValues() {
@@ -29,11 +26,7 @@ public class UserDatabase implements Serializable {
     }
 
     public void refresh() {
-        if(userSearchForm.getUserName() == null) {
-            values = userBean.getAllUsers();
-        } else {
-            values = userBean.getUserName(userSearchForm.getUserName());
-        }
+        values = userBean.getAllUsers();
     }
 
 }

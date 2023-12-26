@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//PL"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-    <meta content="UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF‑8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <h:outputStylesheet library="" name="css/adminPage.css"/>
     <title>Admin Page</title>
@@ -15,12 +15,12 @@
 
     <div class="bodyDiv">
 
-    <p:panelGrid columns="2" columnClasses="ui-grid-col-2,ui-grid-col-10" layout="grid">
+    <p:panelGrid columns="2" columnClasses="ui-grid-col-3,ui-grid-col-9" layout="grid" styleClass="panelGrid">
 
-        <div class="sidebar">
+        <div class="divForm">
 
-            <h:form>
-                <p:calendar class="calendar" mode="inline" showWeek="true" />
+            <h:form styleClass="sidebar">
+                <p:calendar styleClass="calendar" class="calendar" mode="inline" showWeek="true" />
                 <p:menu>
 
                     <p:submenu label="Strony">
@@ -31,9 +31,17 @@
 
                         <p:menuitem value="Przedmioty" outcome="itemsList" ajax="false" async="false" />
 
+                        <p:menuitem value="Wyloguj" outcome="login" ajax="false" async="false" />
+
                     </p:submenu>
 
                 </p:menu>
+
+                <img src="../resources/images/columns.jpg" alt="Columns" width="auto"/>
+
+                <div class="promotion">
+                    <p> Skorzystaj ze świątecznej promocji! Kup drugi przedmiot z rabatem 25%! </p>
+                </div>
             </h:form>
 
         </div>
@@ -42,11 +50,11 @@
 
 
             <div align="center" class="mainBody">
-                <h1>Witam kierownika!</h1><h2>Prosze zarzadzac strona.</h2>
+                <h1>Witam kierownika!</h1><h2>Proszę zarządzać stroną.</h2>
 
                 <p class="title">Tutaj można otworzyć widok strony głównej</p>
                 <fieldset>
-                    <div class="text">
+                    <div class="text1">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique, nisl at vestibulum venenatis, ipsum nunc cursus ipsum, a condimentum nibh dolor vitae metus. Nullam lectus diam, iaculis ac lorem nec, iaculis volutpat felis. Proin a varius felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie, ex non lacinia commodo, justo justo eleifend mi, consequat convallis leo mauris ut quam. Suspendisse id mauris at diam gravida mattis. Aenean elit velit, pharetra pulvinar molestie vel, dignissim vel eros. Vestibulum ac tempus nibh. Praesent imperdiet, libero id sagittis egestas, tortor nunc venenatis lacus, vel dictum sapien lectus non orci. Pellentesque ut nibh nisi. Donec dapibus erat nisi, id mollis risus efficitur quis. Fusce pellentesque venenatis quam vel consectetur.
 
                         Aenean tincidunt nisl eu nunc tincidunt, ut pulvinar eros imperdiet. Mauris nec dolor eu ligula efficitur vestibulum aliquet a velit. Curabitur auctor egestas neque at pellentesque. Curabitur et erat nulla. Duis magna neque, pretium et venenatis ut, auctor sit amet lectus. Etiam lobortis non erat ut venenatis. Integer tempor ultricies mauris vestibulum porta.
@@ -64,7 +72,7 @@
 
                 <p class="title">Tutaj można wejść na opcje dostępne dla przedmiotów</p>
                 <fieldset>
-                    <div class="text">
+                    <div class="text2">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique, nisl at vestibulum venenatis, ipsum nunc cursus ipsum, a condimentum nibh dolor vitae metus. Nullam lectus diam, iaculis ac lorem nec, iaculis volutpat felis. Proin a varius felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie, ex non lacinia commodo, justo justo eleifend mi, consequat convallis leo mauris ut quam. Suspendisse id mauris at diam gravida mattis. Aenean elit velit, pharetra pulvinar molestie vel, dignissim vel eros. Vestibulum ac tempus nibh. Praesent imperdiet, libero id sagittis egestas, tortor nunc venenatis lacus, vel dictum sapien lectus non orci. Pellentesque ut nibh nisi. Donec dapibus erat nisi, id mollis risus efficitur quis. Fusce pellentesque venenatis quam vel consectetur.
 
                         Aenean tincidunt nisl eu nunc tincidunt, ut pulvinar eros imperdiet. Mauris nec dolor eu ligula efficitur vestibulum aliquet a velit. Curabitur auctor egestas neque at pellentesque. Curabitur et erat nulla. Duis magna neque, pretium et venenatis ut, auctor sit amet lectus. Etiam lobortis non erat ut venenatis. Integer tempor ultricies mauris vestibulum porta.
@@ -82,7 +90,7 @@
 
                 <p class="title">Tutaj można wejść na opcje dostępne dla listy użytkoników</p>
                 <fieldset>
-                    <div class="text">
+                    <div class="text3">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique, nisl at vestibulum venenatis, ipsum nunc cursus ipsum, a condimentum nibh dolor vitae metus. Nullam lectus diam, iaculis ac lorem nec, iaculis volutpat felis. Proin a varius felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie, ex non lacinia commodo, justo justo eleifend mi, consequat convallis leo mauris ut quam. Suspendisse id mauris at diam gravida mattis. Aenean elit velit, pharetra pulvinar molestie vel, dignissim vel eros. Vestibulum ac tempus nibh. Praesent imperdiet, libero id sagittis egestas, tortor nunc venenatis lacus, vel dictum sapien lectus non orci. Pellentesque ut nibh nisi. Donec dapibus erat nisi, id mollis risus efficitur quis. Fusce pellentesque venenatis quam vel consectetur.
 
                         Aenean tincidunt nisl eu nunc tincidunt, ut pulvinar eros imperdiet. Mauris nec dolor eu ligula efficitur vestibulum aliquet a velit. Curabitur auctor egestas neque at pellentesque. Curabitur et erat nulla. Duis magna neque, pretium et venenatis ut, auctor sit amet lectus. Etiam lobortis non erat ut venenatis. Integer tempor ultricies mauris vestibulum porta.

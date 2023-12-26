@@ -5,7 +5,7 @@
 }
 
 .body {
-    background: rgb(253, 203, 161);
+    background: rgb(246, 218, 195);
 }
 
 .image {
@@ -25,6 +25,7 @@
     opacity:0;
     color: white;
     font-size: 20px;
+    font-family: 'Aboreto', sans-serif;
     padding: 20px;
     text-align: center;
 }
@@ -38,6 +39,7 @@
     justify-content: center;
     align-items: center;
     font-size: 30px;
+    font-family: 'Aboreto', sans-serif;
     background: #f6d3a5;
     background: linear-gradient(to right, #fc6611 0%, #d79562 100%);
     text-shadow: 2px 2px 4px #000000;
@@ -61,12 +63,12 @@
     cursor: pointer;
     transition: transform 0.2s;
 }
-/* onHover image will expand little bit */
+
 .gallery-img:hover {
     transform: scale(1.1);
     cursor: zoom-in;
 }
-/* This section will be seen when we click on image */
+
 .image-popup-container {
     display: none;
     position: fixed;
@@ -77,12 +79,13 @@
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* close button when we want to close the bigger image */
+
 .close-button {
     position: absolute;
     top: 20px;
     right: 50px;
     font-size:60px;
+    font-family: 'Aboreto', sans-serif;
     color: #fff;
     cursor: pointer;
 }
@@ -90,8 +93,6 @@
     color: red;
 }
 
-/* when we click on the image it will expand in bigger size and will displayed
-at middle of screen */
 #popupImage {
     display: block;
     max-width: 80%;
@@ -103,7 +104,6 @@ at middle of screen */
     transform: translate(-50%, -50%);
 }
 
-/* Making images more responsive for smaller size device */
 @media (max-width:670px) {
     .gallery{
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -116,5 +116,6 @@ at middle of screen */
 
     .heading{
         font-size: 20px;
+        font-family: 'Aboreto', sans-serif;
     }
 }
