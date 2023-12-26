@@ -17,38 +17,41 @@
         <f:viewParam name="itmId" value="#{itemForm.itemId}"/>
         <f:event type="preRenderView" listener="#{editItemController.preRenderViewEvent}"/>
     </f:metadata>
+    <div class="body">
+        <div class="editUserForm">
+            <h:form id="itemForm">
+                <h:panelGrid columns="3">
 
-    <h:form id="itemForm">
-        <h:panelGrid columns="3">
+                    <p:outputLabel for="itemName" value="NAZWA"/>
+                    <p:inputText id="itemName" value="#{itemForm.item.name}"/>
+                    <p:message for="itemName"/>
 
-            <p:outputLabel for="itemName" value="NAZWA"/>
-            <p:inputText id="itemName" value="#{itemForm.item.name}"/>
-            <p:message for="itemName"/>
+                    <p:outputLabel for="itemCategory" value="KATEGORIA"/>
+                    <p:inputText id="itemCategory" value="#{itemForm.item.category}"/>
+                    <p:message for="itemCategory"/>
 
-            <p:outputLabel for="itemCategory" value="KATEGORIA"/>
-            <p:inputText id="itemCategory" value="#{itemForm.item.category}"/>
-            <p:message for="itemCategory"/>
+                    <p:outputLabel for="itemYearOfProduction" value="ROK PRODUKCJI"/>
+                    <p:inputText id="itemYearOfProduction" value="#{itemForm.item.yearOfProduction}"/>
+                    <p:message for="itemYearOfProduction"/>
 
-            <p:outputLabel for="itemYearOfProduction" value="ROK PRODUKCJI"/>
-            <p:inputText id="itemYearOfProduction" value="#{itemForm.item.yearOfProduction}"/>
-            <p:message for="itemYearOfProduction"/>
+                    <p:outputLabel for="itemPrice" value="CENA"/>
+                    <p:inputText id="itemPrice" value="#{itemForm.item.price}"/>
+                    <p:message for="itemPrice"/>
 
-            <p:outputLabel for="itemPrice" value="CENA"/>
-            <p:inputText id="itemPrice" value="#{itemForm.item.price}"/>
-            <p:message for="itemPrice"/>
+                    <p:outputLabel for="itemAuctionEndDate" value="DATA ZAKOŃCZENIA AUKCJI"/>
+                    <p:inputText id="itemAuctionEndDate" value="#{itemForm.item.auctionEndDate}"/>
+                    <p:message for="itemAuctionEndDate"/>
 
-            <p:outputLabel for="itemAuctionEndDate" value="DATA ZAKOŃCZENIA AUKCJI"/>
-            <p:inputText id="itemAuctionEndDate" value="#{itemForm.item.auctionEndDate}"/>
-            <p:message for="itemAuctionEndDate"/>
-
-            <p:outputLabel for="itemDescription" value="OPIS"/>
-            <p:inputText id="itemDescription" value="#{itemForm.item.description}"/>
-            <p:message for="itemDescription"/>
+                    <p:outputLabel for="itemDescription" value="OPIS"/>
+                    <p:inputText id="itemDescription" value="#{itemForm.item.description}"/>
+                    <p:message for="itemDescription"/>
 
 
-            <p:commandButton action="#{editItemController.save}" value="Zapisz"/>
-            <p:button outcome="itemsList" value="Przejdż do listy przedmiotów"/>
-        </h:panelGrid>
-    </h:form>
+                    <p:commandButton action="#{editItemController.save}" value="Zapisz"/>
+                    <p:button outcome="itemsList" value="Przejdż do listy przedmiotów"/>
+                </h:panelGrid>
+            </h:form>
+        </div>
+    </div>
 </h:body>
 </html>

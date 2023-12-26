@@ -2,8 +2,15 @@
     background-image: url('../images/carpetGob.jpg');
     height: 100%;
     width: 100%;
+}
+
+.editItemForm {
+    position: absolute;
+    background-color: #726d6d;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
     top: 40%;
     left: 40%;
-    text-align: center;
-    background-size: 100% 100%;
 }

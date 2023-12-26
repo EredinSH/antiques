@@ -59,7 +59,9 @@
                 </p:column>
             </p:dataTable>
 
-            <p:commandButton action="createItem.xhtml?faces-redirect=true" value="Dodaj przedmiot" class="btn btn-success btnSpace" />
+            <h:form>
+                <p:button id="createUser" value="Dodaj przedmiot" outcome="createItem"/>
+            </h:form>
 
         </h:form>
 
