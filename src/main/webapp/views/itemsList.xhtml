@@ -21,7 +21,7 @@
 
     <p:growl id="growl" globalOnly="true"/>
     <div align="center">
-        <h2><h:outputText value="Lista przedmiotów"/></h2>
+        <h3><h:outputText value="Lista przedmiotów"/></h3>
         <h:form id="itemForm">
             <p:dataTable id="itemTable" value="#{itemDatabase.values}" var="itm" class="itemsTable" rows="3" paginator="true">
                 <p:column sortBy="#{itm.id}" name="header" id="idColumn">

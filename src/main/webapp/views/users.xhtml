@@ -20,7 +20,7 @@
 
     <p:growl id="growl" globalOnly="true"/>
     <div align="center">
-        <h2><h:outputText value="Lista użytkowników"/></h2>
+        <h3><h:outputText value="Lista użytkowników"/></h3>
         <h:form id="userForm">
             <p:dataTable id="usersTable" value="#{userDatabase.values}" var="usr" class="usersTable" rows="5" paginator="true">
                 <p:column sortBy="#{usr.id}" name="header" id="idColumn">

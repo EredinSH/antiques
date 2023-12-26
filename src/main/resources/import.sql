@@ -15,7 +15,6 @@ INSERT INTO item (name, category, yearOfProduction, price, auctionEndDate, descr
 INSERT INTO item (name, category, yearOfProduction, price, auctionEndDate, description) VALUES ('Przedwojenny model jachtu','inne',1927,3500.00,'2025-2-20','Wiernie odwzorowany model jachtu, datowany na okres XX-lecia miedzywojennego. Stan zachowania bardzo dobry.');
 INSERT INTO item (name, category, yearOfProduction, price, auctionEndDate, description) VALUES ('Duży gobelin', 'inne', 1920,1200.00,'2025-4-12','Z przedstawieniem sceny rodzajowej z grającymi w kule mężczyznami. Tkanina bez ramy naciągnięta na nowe krosna. Wielkość 120 x 90 cm. Stan zachowania bardzo dobry, tkanina nie ma uszkodzeń.');
 
-
 INSERT INTO user (name, surname, age, nick, mail, account) VALUES ('Bogdan','Espan',28,'Bogdano','acordeone@gmail.com',25000.00);
 INSERT INTO user (name, surname, age, nick, mail, account) VALUES ('Nikita','Romanov',34,null,'car123@gmail.com',85500.25);
 INSERT INTO user (name, surname, age, nick, mail, account) VALUES ('Garry','Coolman',48,null,'garryCool@gmail.com',37700.00);

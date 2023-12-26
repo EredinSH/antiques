@@ -41,9 +41,7 @@
     align-items: center;
     font-size: 30px;
     font-family: 'Aboreto', sans-serif;
-    background: #f6d3a5;
-    background: linear-gradient(to right, #fc6611 0%, #d79562 100%);
-    text-shadow: 2px 2px 4px #000000;
+    background: linear-gradient(to right, #ffffff 0%, #b6b4b4 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
