@@ -4,3 +4,28 @@
     width: 100%;
     background-size: 100% 100%;
 }
+
+.bodyDiv {
+    background-color: tan;
+}
+
+.calendar {
+    top: 95%;
+    right: 80%;
+}
+
+div.text {
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Aboreto', sans-serif;
+    color: black;
+}
+
+.sidebar {
+    font-family: 'Aboreto', sans-serif;
+    color: black;
+}
+
+.mainBody {
+    background-color: #f6dac3;
+}
