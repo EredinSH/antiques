@@ -24,7 +24,8 @@
     <div align="center">
         <h3><h:outputText value="Lista przedmiotów"/></h3>
         <h:form id="itemForm">
-            <p:dataTable id="itemTable" value="#{itemDatabase.values}" var="itm" class="itemsTable" rows="3" paginator="true">
+
+            <p:dataTable id="itemTable" value="#{itemDatabase.values}" var="itm" rows="3" paginator="true">
                 <p:column sortBy="#{itm.id}" name="header" id="idColumn">
                     <f:facet name="header">ID</f:facet>
                     <h:link value="#{itm.id}" outcome="editItem">
@@ -56,12 +57,12 @@
                     #{itm.description}
                 </p:column>
                 <p:column name="delete" id="deleteButton">
-                    <p:commandButton action="#{itemController.remove(itm)}" icon="ui-icon-trash" class="btn btn-danger" update="@form growl"/>
+                    <p:commandButton action="#{itemController.remove(itm)}" icon="ui-icon-trash" update="@form growl"/>
                 </p:column>
             </p:dataTable>
 
             <h:form>
-                <p:button id="createUser" value="Dodaj przedmiot" outcome="createItem"/>
+                <p:button id="createItem" value="Dodaj przedmiot" outcome="createItem"/>
             </h:form>
 
         </h:form>

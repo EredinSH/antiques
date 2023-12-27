@@ -44,7 +44,9 @@
                     <p:message for="itemPrice"/>
 
                     <p:outputLabel for="itemAuctionEndDate" value="DATA ZAKOŃCZENIA AUKCJI"/>
-                    <p:inputText id="itemAuctionEndDate" value="#{itemForm.item.auctionEndDate}"/>
+                    <p:inputText id="itemAuctionEndDate" value="#{itemForm.item.auctionEndDate}">
+                        <f:convertDateTime pattern="MM/dd/yyyy"/>
+                    </p:inputText>
                     <p:message for="itemAuctionEndDate"/>
 
                     <p:outputLabel for="itemDescription" value="OPIS"/>
@@ -52,7 +54,7 @@
                     <p:message for="itemDescription"/>
 
                     <p:commandButton action="#{editItemController.save}" value="Zapisz"/>
-                    <p:button outcome="itemsList" value="Przejdż do listy przedmiotów"/>
+                    <p:button outcome="itemsList" value="Wyjdź"/>
                 </h:panelGrid>
             </h:form>
         </div>

@@ -41,8 +41,8 @@
                     <p:message for="itemDescription"/>
 
 
-                    <p:commandButton action="#{itemController.saveItem}" value="Zapisz"/>
-                    <p:button outcome="users" value="Wyjdź"/>
+                    <p:commandButton update="@form:itemForm" action="#{editItemController.persistItem}" value="Zapisz"/>
+                    <p:button outcome="itemsList" value="Wyjdź"/>
                 </h:panelGrid>
             </h:form>
         </div>

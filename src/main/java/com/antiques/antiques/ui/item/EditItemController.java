@@ -43,5 +43,11 @@ public class EditItemController {
         itemBean.getAllItems();
         this.item = new Item();
     }
+
+    public void persistItem() {
+        itemBean.persist(item);
+        itemBean.getAllItems();
+        this.item = new Item();
+    }
 }
 

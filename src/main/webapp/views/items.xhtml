@@ -54,7 +54,7 @@
                 </p:column>
                 <p:column name="header" id="auctionPrice">
                     <p:outputLabel for="itemPrice" value="Podaj cene zakupu:"/>
-                    <p:inputText id="itemPrice" value="#{itm.price}" required="true" requiredMessage="Wartość musi być liczbą wiekszą od aktualnej ceny"/>
+                    <p:inputNumber id="itemPrice" value="#{itm.price}" minValue="#{itm.price}"/>
                     <p:commandButton value="Wyślij" action="items"/>
                 </p:column>
             </p:dataTable>
