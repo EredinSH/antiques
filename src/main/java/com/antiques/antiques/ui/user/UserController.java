@@ -18,25 +18,12 @@ public class UserController implements Serializable {
     UserBean userBean;
 
     @Inject
-    UserForm userForm;
-
-
-    @Inject
     UserDatabase userDatabase;
 
     public void remove(User user) {
         userBean.remove(user);
         userDatabase.refresh();
         FacesContext.getCurrentInstance().addMessage(null,new FacesMessage("Usunięto użytkownika " + user.getId()));
-    }
-
-    public void saveUser() {
-        if(userForm.getUserId() == null) {
-            userForm.setUser(new User());
-            return;
-        }
-        User user = userBean.find(userForm.getUserId());
-        userForm.setUser(user);
     }
 
 }

@@ -11,7 +11,7 @@
     <h:outputStylesheet library="" name="css/editItem.css"/>
     <title>Edytuj przedmiot</title>
 </h:head>
-<h:body styleClass="body" style="background-image: url('/resources/images/carpetGob.jpg');">
+<h:body styleClass="body" style="background-image: url('../resources/images/carpetGob.jpg');">
 
     <f:metadata>
         <f:viewParam name="itmId" value="#{itemForm.itemId}"/>
@@ -21,6 +21,10 @@
         <div class="editUserForm">
             <h:form id="itemForm">
                 <h:panelGrid columns="3">
+
+                    <p:outputLabel for="itemId" value="ID"/>
+                    <p:inputText id="itemId" value="#{itemForm.item.id}" readonly="true"/>
+                    <p:message for="itemId"/>
 
                     <p:outputLabel for="itemName" value="NAZWA"/>
                     <p:inputText id="itemName" value="#{itemForm.item.name}"/>
@@ -45,7 +49,6 @@
                     <p:outputLabel for="itemDescription" value="OPIS"/>
                     <p:inputText id="itemDescription" value="#{itemForm.item.description}"/>
                     <p:message for="itemDescription"/>
-
 
                     <p:commandButton action="#{editItemController.save}" value="Zapisz"/>
                     <p:button outcome="itemsList" value="Przejdż do listy przedmiotów"/>

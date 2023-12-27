@@ -2,7 +2,8 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
     <meta content="UTF-8"/>
@@ -10,11 +11,21 @@
     <h:outputStylesheet library="" name="css/editUser.css"/>
     <title>Edytuj użytkownika</title>
 </h:head>
-<h:body styleClass="body" style="background-image: url('/resources/images/carpetGob.jpg');">
+<h:body styleClass="body" style="background-image: url('../resources/images/carpetGob.jpg');">
+
+    <f:metadata>
+        <f:viewParam name="userId" value="#{userForm.userId}"/>
+        <f:event type="preRenderView" listener="#{editUserController.preRenderViewEvent}"/>
+    </f:metadata>
+
     <div class="body">
         <div class="editUserForm">
             <h:form id="userForm" styleClass="editUserForm">
                 <h:panelGrid columns="3">
+
+                    <p:outputLabel for="userId" value="ID"/>
+                    <p:inputText id="userId" value="#{userForm.user.id}" readonly="true"/>
+                    <p:message for="userId"/>
 
                     <p:outputLabel for="userName" value="IMIĘ"/>
                     <p:inputText id="userName" value="#{userForm.user.name}"/>

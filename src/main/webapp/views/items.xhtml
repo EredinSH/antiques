@@ -11,7 +11,7 @@
     <h:outputStylesheet library="" name="css/items.css"/>
     <title>Przedmioty</title>
 </h:head>
-<h:body styleClass="body">
+<h:body styleClass="body" style="background-image: url('../resources/images/carpetGob.jpg');">
 
     <h1 class="textH1">Jesteś na stronie przedmiotów!</h1>
     <h2 class="textH2">Zobacz dostępne przedmioty</h2>
@@ -21,9 +21,13 @@
 
     <p:growl id="growl" globalOnly="true"/>
     <div align="center">
-        <h3><h:outputText styleClass="listTitle" value="Lista przedmiotów"/></h3>
+        <h3><h:outputText value="Lista przedmiotów"/></h3>
         <h:form id="itemForm" styleClass="itemForm">
             <p:dataTable id="itemTable" value="#{itemDatabase.values}" var="itm" class="itemsTable" rows="3" paginator="true">
+                <p:column sortBy="#{itm.id}" name="header" id="idColumn">
+                    <f:facet name="header">ID</f:facet>
+                    #{itm.id}
+                </p:column>
                 <p:column sortBy="#{itm.name}" name="header" id="nameColumn">
                     <f:facet name="header">NAZWA</f:facet>
                     #{itm.name}
@@ -50,8 +54,8 @@
                 </p:column>
                 <p:column name="header" id="auctionPrice">
                     <p:outputLabel for="itemPrice" value="Podaj cene zakupu:"/>
-                    <p:inputText id="itemPrice" value="#{itemPriceBean.newPrice}" required="true" requiredMessage="Pole oferta musi być liczbą" validator="#{itemPriceBean.validatePrice}"/>
-                    <p:commandButton value="Wyślij" action="#{itemPriceBean.doValidate}"/>
+                    <p:inputText id="itemPrice" value="#{itm.price}" required="true" requiredMessage="Wartość musi być liczbą wiekszą od aktualnej ceny"/>
+                    <p:commandButton value="Wyślij" action="items"/>
                 </p:column>
             </p:dataTable>
 

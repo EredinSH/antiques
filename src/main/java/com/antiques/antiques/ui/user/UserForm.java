@@ -1,12 +1,13 @@
 package com.antiques.antiques.ui.user;
 
 import com.antiques.antiques.model.User;
+import org.omnifaces.cdi.ViewScoped;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;
 
-@SessionScoped
+@ViewScoped
 @Named
 public class UserForm implements Serializable {
 

@@ -31,18 +31,6 @@ public class User implements Serializable {
     @Column(name = "account", precision=8, scale=2, nullable=false)
     private Double account;
 
-    public User() {
-    }
-
-    public User(String name, String surname, int age, String nick, String mail, Double account) {
-        this.name = name;
-        this.surname = surname;
-        this.age = age;
-        this.nick = nick;
-        this.mail = mail;
-        this.account = account;
-    }
-
     public Long getId() {
         return id;
     }

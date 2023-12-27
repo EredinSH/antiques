@@ -23,12 +23,6 @@ public class UserBean {
         return query.getResultList();
     }
 
-    public List<User> getUserName(String userName) {
-        TypedQuery<User> query = em.createQuery("SELECT u FROM User u WHERE u.name = :userName", User.class);
-        query.setParameter("userName", userName);
-        return query.getResultList();
-    }
-
     public User find(Long id) {
         return em.find(User.class, id);
     }
@@ -44,6 +38,17 @@ public class UserBean {
     public void remove(User user) {
         User attached = find(user.getId());
         em.remove(attached);
+    }
+
+    public void addNewUser(User user) {
+        User newUser = new User();
+        newUser.setName(user.getName());
+        newUser.setSurname(user.getSurname());
+        newUser.setAge(user.getAge());
+        newUser.setNick(user.getNick());
+        newUser.setMail(user.getMail());
+        newUser.setAccount(user.getAccount());
+        this.em.persist(newUser);
     }
 
 }

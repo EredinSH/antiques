@@ -11,6 +11,8 @@ import javax.inject.Named;
 @Named
 public class EditUserController {
 
+    private User user = new User();
+
     @Inject
     UserForm userForm;
 
@@ -34,6 +36,12 @@ public class EditUserController {
         }
         User user = userBean.find(userForm.getUserId());
         userForm.setUser(user);
+    }
+
+    public void addUser() {
+        userBean.addNewUser(user);
+        userBean.getAllUsers();
+        this.user = new User();
     }
 
 }
