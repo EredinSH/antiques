@@ -35,18 +35,6 @@ public class Item implements Serializable {
     @NotNull
     private String description;
 
-    public Item() {
-    }
-
-    public Item(String name, String category, int yearOfProduction, Double price, Date auctionEndDate, String description) {
-        this.name = name;
-        this.category = category;
-        this.yearOfProduction = yearOfProduction;
-        this.price = price;
-        this.auctionEndDate = auctionEndDate;
-        this.description = description;
-    }
-
     public Long getId() {
         return id;
     }

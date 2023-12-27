@@ -18,9 +18,6 @@ public class ItemController implements Serializable {
     ItemBean itemBean;
 
     @Inject
-    ItemForm itemForm;
-
-    @Inject
     ItemDatabase itemDatabase;
 
     public void remove(Item item) {
@@ -29,12 +26,4 @@ public class ItemController implements Serializable {
         FacesContext.getCurrentInstance().addMessage(null,new FacesMessage("Usunięto przedmiot " + item.getId()));
     }
 
-    public void saveItem() {
-        if(itemForm.getItemId() == null) {
-            itemForm.setItem(new Item());
-            return;
-        }
-        Item item = itemBean.find(itemForm.getItemId());
-        itemForm.setItem(item);
-    }
 }

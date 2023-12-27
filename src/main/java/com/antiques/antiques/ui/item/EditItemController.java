@@ -11,6 +11,8 @@ import javax.inject.Named;
 @Named
 public class EditItemController {
 
+    private Item item = new Item();
+
     @Inject
     ItemForm itemForm;
 
@@ -34,6 +36,12 @@ public class EditItemController {
         }
         Item item = itemBean.find(itemForm.getItemId());
         itemForm.setItem(item);
+    }
+
+    public void addNewItem() {
+        itemBean.addNewItem(item);
+        itemBean.getAllItems();
+        this.item = new Item();
     }
 }
 

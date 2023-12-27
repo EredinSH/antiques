@@ -15,9 +15,6 @@ public class ItemDatabase implements Serializable {
     @Inject
     ItemBean itemBean;
 
-    @Inject
-    ItemForm itemForm;
-
     private List<Item> values;
 
     public List<Item> getValues() {
@@ -31,7 +28,4 @@ public class ItemDatabase implements Serializable {
         values = itemBean.getAllItems();
     }
 
-    public Item preRenderViewEvent() {
-        return itemForm.getItem();
-    }
 }

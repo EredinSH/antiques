@@ -17,9 +17,10 @@
         <f:viewParam name="itmId" value="#{itemForm.itemId}"/>
         <f:event type="preRenderView" listener="#{editItemController.preRenderViewEvent}"/>
     </f:metadata>
+
     <div class="body">
         <div class="editUserForm">
-            <h:form id="itemForm">
+            <h:form id="itemForm" styleClass="editItemForm">
                 <h:panelGrid columns="3">
 
                     <p:outputLabel for="itemId" value="ID"/>

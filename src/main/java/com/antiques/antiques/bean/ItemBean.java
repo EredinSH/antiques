@@ -24,12 +24,6 @@ public class ItemBean {
         return query.getResultList();
     }
 
-    public List<Item> getAuctionEndDateBefore(Date auctionDateBefore) {
-        TypedQuery<Item> query = em.createQuery("SELECT i FROM Item i WHERE i.auctionEndDate <= :auctionDateBefore", Item.class);
-        query.setParameter("auctionDateBefore", auctionDateBefore);
-        return query.getResultList();
-    }
-
     public Item find(Long id) {
         return em.find(Item.class, id);
     }
@@ -45,5 +39,16 @@ public class ItemBean {
     public void remove(Item item) {
         Item attached = find(item.getId());
         em.remove(attached);
+    }
+
+    public void addNewItem(Item item) {
+        Item newItem = new Item();
+        newItem.setName(item.getName());
+        newItem.setCategory(item.getCategory());
+        newItem.setYearOfProduction(item.getYearOfProduction());
+        newItem.setPrice(item.getPrice());
+        newItem.setAuctionEndDate(item.getAuctionEndDate());
+        newItem.setDescription(item.getDescription());
+        this.em.persist(newItem);
     }
 }
