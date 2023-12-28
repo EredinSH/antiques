@@ -1,12 +1,12 @@
 .body {
-    background-image: url("/resources/images/carpetGob.jpg");
+    background-image: url('../resources/images/carpetGob.jpg');
     height: 100%;
     width: 100%;
     background-size: 100% 100%;
 }
 
 .bodyDiv {
-    background-color: tan;
+    background-color: #e0dede;
 }
 
 .calendar {
@@ -27,7 +27,7 @@ div.text {
 }
 
 .mainBody {
-    background-color: #cecdcd;
+    background-color: #e0dede;
 }
 
 #scroll-container {
@@ -64,4 +64,12 @@ div.text {
         -webkit-transform: translateX(-100%);
         transform: translateX(-100%);
     }
+}
+
+.ui-grid-row {
+    background-image: url('../resources/images/carpetGob.jpg');
+}
+
+.ui-panelgrid-cell ui-grid-col-9 {
+    background-color: #e0dede;
 }

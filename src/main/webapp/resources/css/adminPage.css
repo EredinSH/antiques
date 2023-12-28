@@ -76,6 +76,10 @@ div.text3 {
     background-image: url('../resources/images/carpetGob.jpg');
 }
 
-.ui-grid-col-3 {
+.ui-grid-row {
+    background-image: url('../resources/images/carpetGob.jpg');
+}
 
+.ui-panelgrid-cell.ui-grid-col-3 {
+    background-image: url('../resources/images/carpetGob.jpg');
 }
